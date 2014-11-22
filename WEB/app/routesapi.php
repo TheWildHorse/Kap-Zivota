@@ -2,7 +2,7 @@
 Route::api(['version' => 'v1', 'prefix' => 'api'], function () {
 
 
-    Route::post('users/login',function()
+    Route::post('users/register',function()
     {
 
        $email = Input::get('email');
