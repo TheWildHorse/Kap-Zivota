@@ -11,9 +11,9 @@
         </style>
     </head>
 
-    <body data-twttr-rendered="true" style="background-image: url('img/pinstripe.png');">
-        <div class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
+    <body data-twttr-rendered="true" style="background-image: url('img/crossword.png');">
+        <div class="navbar navbar-default navbar-fixed-top" >
+            <div class="container" style="font-size:132%">
                 <div class="navbar-header">
                     <a href="./" class="navbar-brand">Bootswatch</a>
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
@@ -70,16 +70,15 @@
                 </div>
             </div>
         </div>
-
-                <div class="row" style="background-color:white;bottom:0">
-                    <div class="col-lg-2" style="bottom:0;position:absolut"></div>
-                    <div class="col-lg-10" style="bottom:0;position:absolut">
+        <hr style="border-top: 1px solid #E8776B;">
+                <div class="row" style="bottom:0">
+                    <div class="col-lg-2" style="bottom:0"></div>
+                    <div class="col-lg-10" style="bottom:0">
                         <p>Made by <a href="http://thomaspark.me" rel="nofollow">Thomas Park</a>. Contact him at <a href="mailto:thomas@bootswatch.com">thomas@bootswatch.com</a>.</p>
                         <p>Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">MIT License</a>.</p>
                         <p>Based on <a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
                     </div>
                 </div>
-
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script>
         </script>
