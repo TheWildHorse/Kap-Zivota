@@ -54,6 +54,7 @@ public class Home extends Activity implements View.OnClickListener {
             case R.id.btnHomeCanIDonate:
                 break;
             case R.id.btnHomeProfileSettings:
+                i = new Intent("kap.trippleit.com.kapzivota.REGISTRATIONUSERDATA");
                 break;
             case R.id.btnHomeSettings:
                 break;

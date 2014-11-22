@@ -8,6 +8,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import com.pushbots.push.Pushbots;
+
 /**
  * Created by root on 22.11.14..
  */
@@ -24,14 +26,25 @@ public class Language extends Activity implements View.OnClickListener {
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
 
+        //Pushbots.init(this, "30119727242", "54705e2f1d0ab18e108b4595");
+
+        //Pushbots.getInstance().setMsgReceiver(CustomPushReceiver.class);
+
+        if(!Singleton.getLanguage(this).isEmpty()){
+            Intent i = new Intent("kap.trippleit.com.kapzivota.PRELOGIN");
+            startActivity(i);
+        }
+
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnLanguageHr:
+                Singleton.setLanguage(this,"hr");;
                 break;
             case R.id.btnLanguageEng:
+                Singleton.setLanguage(this,"hr");;
                 break;
         }
 

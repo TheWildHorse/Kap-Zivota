@@ -38,5 +38,13 @@ public class Singleton {
         set(c, "user_id", VAL);
     }
 
+    public static String getLanguage(Context c) {
+        return get(c, "language");
+    }
+
+    public static void setLanguage(Context c, String VAL) {
+        set(c, "language", VAL);
+    }
+
 
 }

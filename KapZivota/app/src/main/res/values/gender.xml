@@ -2,15 +2,8 @@
 <resources>
 
     <string-array name="blodList">
-        <item>---NOT SELECTED---</item>
-        <item>0-</item>
-        <item>0+</item>
-        <item>A-</item>
-        <item>A+</item>
-        <item>B-</item>
-        <item>B+</item>
-        <item>AB-</item>
-        <item>AB+</item>
+        <item>M</item>
+        <item>Z</item>
     </string-array>
 
     <string-array name="genderList">
