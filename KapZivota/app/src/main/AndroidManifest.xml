@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="kap.trippleit.com.kapzivota" >
+    package="kap.trippleit.com.kapzivota">
 
     <!-- GCM connects to Google Services. -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- GCM requires a Google account. -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
 
-    <permission android:name="kap.trippleit.com.kapzivota.permission.C2D_MESSAGE"
+    <permission
+        android:name="kap.trippleit.com.kapzivota.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
     <uses-permission android:name="kap.trippleit.com.kapzivota.permission.C2D_MESSAGE" />
 
@@ -21,22 +22,86 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+
         <activity
-            android:name="kap.trippleit.com.kapzivota.MainActivity"
-            android:label="@string/app_name" >
+            android:name="kap.trippleit.com.kapzivota.Splash"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.pushbots.push.PBMsg"/>
-        <activity android:name="com.pushbots.push.PBListener"/>
+        <activity
+            android:name="kap.trippleit.com.kapzivota.Language"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="kap.trippleit.com.kapzivota.LANGUAGE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="kap.trippleit.com.kapzivota.PreLogin"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="kap.trippleit.com.kapzivota.PRELOGIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="kap.trippleit.com.kapzivota.Login"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="kap.trippleit.com.kapzivota.LOGIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="kap.trippleit.com.kapzivota.Home"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="kap.trippleit.com.kapzivota.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="kap.trippleit.com.kapzivota.InstitutionList"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="kap.trippleit.com.kapzivota.INSTITUTIONLIST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="kap.trippleit.com.kapzivota.Registration"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="kap.trippleit.com.kapzivota.REGISTRATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="kap.trippleit.com.kapzivota.RegistrationUserData"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="kap.trippleit.com.kapzivota.REGISTRATIONUSERDATA" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.pushbots.push.PBMsg" />
+        <activity android:name="com.pushbots.push.PBListener" />
+
         <receiver
             android:name="com.google.android.gcm.GCMBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND" >
+            android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <!-- Receives the actual messages. -->
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -50,8 +115,9 @@
             </intent-filter>
         </receiver>
         <receiver android:name="com.pushbots.push.MsgReceiver" />
+
         <service android:name="com.pushbots.push.GCMIntentService" />
-        <service android:name="org.openudid.OpenUDID_service" >
+        <service android:name="org.openudid.OpenUDID_service">
             <intent-filter>
                 <action android:name="org.openudid.GETUDID" />
             </intent-filter>

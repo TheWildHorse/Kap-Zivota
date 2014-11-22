@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.pushbots.push.Pushbots;
+
 
 public class MainActivity extends Activity {
 
@@ -14,16 +16,15 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.language);
 
-        /*
-        Pushbots.init(this, "30119727242","54705e2f1d0ab18e108b4595");
+        setContentView(R.layout.splash);
+
+
+        Pushbots.init(this, "30119727242", "54705e2f1d0ab18e108b4595");
 
         Pushbots.getInstance().setMsgReceiver(CustomPushReceiver.class);
-
+/*
         PBGenerateCustomNotification PBCustom = new PBGenerateCustomNotification();
         PBCustom.layout = R.layout.activity_main;
         PBCustom.titleId = R.id.title;
