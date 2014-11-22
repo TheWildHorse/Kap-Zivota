@@ -69,11 +69,13 @@
         <hr style="border-top: 1px solid #E8776B;">
                 <div class="row" style="bottom:0">
                     <div class="col-lg-2" style="bottom:0"></div>
-                    <div class="col-lg-10" style="bottom:0">
-                        <p>Made by <a href="http://thomaspark.me" rel="nofollow">Thomas Park</a>. Contact him at <a href="mailto:thomas@bootswatch.com">thomas@bootswatch.com</a>.</p>
-                        <p>Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">MIT License</a>.</p>
-                        <p>Based on <a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
+                    <div class="col-lg-5" style="bottom:0">
+                        <p>Kap života</p>
+                        <p>Made by <a href="#" rel="nofollow">Noobs Freestyle</a> @ <a href="http://rsc.foi.hr/">HACKATHON</a>.</p>
                     </div>
+                    <div class="col-lg-1" style="bottom:0"> <img width="85px" height="85px" src="img/footer_1.png"/></div>
+                    <div class="col-lg-1" style="bottom:0"><img width="85px" height="85px" src="img/footer_2.png"/></div>
+                    <div class="col-lg-1" style="bottom:0"><img width="85px" height="85px" src="img/footer_3.png"/></div>
                 </div>
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script>

@@ -6,7 +6,7 @@
 <script src="js/Chart.js"></script>
 <div class="col-lg-3"></div>
 <div class="col-lg-8">
-<canvas id="myChart" width="600" height="600">
+<canvas id="myChart" width="600" height="450">
 
 
 </canvas>
