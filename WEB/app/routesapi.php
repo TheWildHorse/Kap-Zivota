@@ -11,7 +11,20 @@ Route::api(['version' => 'v1', 'prefix' => 'api'], function () {
 
     });
 
+    Route::post('users/edit',function()
+    {
 
+        $value = UsersController::core_edit(json_decode(file_get_contents("php://input"),true));
+
+        if($value==true)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    });
 
 
 

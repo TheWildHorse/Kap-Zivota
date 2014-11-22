@@ -17,20 +17,17 @@ class UsersController extends BaseController {
 		return false;
 	}
 
-	public function core_edit($data) {
-		$validation = Validator::make($data, User::$rules);
+	public static  function core_edit($data) {
 
-		if ($validation->passes())
-		{
-			$user = $this->user->find($data['id']);
+			$user = User::find($data['id']);
 
 			if($user->api_key == $data['api_key']) {
-				$user->update($data);
+				$user->update($data["data"]);
 				return true;
 			}
 			else return false;
-		}
-		return false;
+
+
 	}
 
 	public static  function core_register($email,$password) {
