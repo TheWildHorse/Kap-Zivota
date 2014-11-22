@@ -21,7 +21,8 @@ class AdminController extends BaseController
 
     public function sendPush()
     {
-        return View::make('admin.sendpush');
+        $users =  User::where('permission_id','=','0');
+        return View::make('admin.sendpush',compact('users'));
     }
 
 }
