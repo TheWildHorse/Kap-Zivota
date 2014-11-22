@@ -19,7 +19,7 @@ class InstitutionsTableSeeder extends Seeder {
         );
 
         // Uncomment the below to run the seeder
-        // DB::table('institutions')->insert($institutions);
+         DB::table('institutions')->insert($institutions);
     }
 
 }
