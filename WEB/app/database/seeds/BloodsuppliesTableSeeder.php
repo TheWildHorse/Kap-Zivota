@@ -5,7 +5,7 @@ class BloodsuppliesTableSeeder extends Seeder {
 	public function run()
 	{
 		// Uncomment the below to wipe the table clean before populating
-		 DB::table('bloodsupplies')->truncate();
+		 DB::table('BloodSupplies')->truncate();
 
 		$bloodsupplies = array(
 
@@ -17,7 +17,7 @@ class BloodsuppliesTableSeeder extends Seeder {
 		);
 
 		// Uncomment the below to run the seeder
-		 DB::table('bloodsupplies')->insert($bloodsupplies);
+		 DB::table('BloodSupplies')->insert($bloodsupplies);
 	}
 
 }

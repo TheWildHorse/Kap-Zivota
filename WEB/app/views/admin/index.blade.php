@@ -2,7 +2,7 @@
 
 @section('main')
 
-<?php $sveGrupe = Blood::lists('type','id');?>
+<?php $sveGrupe = Blood::lists('type', 'id'); ?>
 <script src="js/Chart.js"></script>
 
 <div class="row">
@@ -54,41 +54,92 @@
     <div class="col-lg-3"></div>
     <div class="col-lg-6" id="form" style="display:none">
         <div class="well bs-component">
-           	{{Form::open(array('action' => 'AdminController@sendPush'))}}
-                <fieldset>
+            {{Form::open(array('action' => 'AdminController@sendPush'))}}
+            <fieldset>
+                <legend>Pozivanje donatora</legend>
+                <div class="form-group">
+                    <label for="inputNaslov" class="col-lg-2 control-label">Naslov</label>
+                    <div class="col-lg-10">
+                        {{ Form::text('Dodajte obavijesti', null, ['class' => 'form-control']) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="textArea" class="col-lg-2 control-label">Odaberite krvnu grupu</label>
+                    <div class="col-lg-10">
+                        {{Form::select('bloodgroup',$sveGrupe)}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="textArea" class="col-lg-2 control-label">Dodatne informacije</label>
+                    <div class="col-lg-10">
+                        {{ Form::textarea('Dodajte obavijesti', null, ['class' => 'form-control']) }}
+                    </div>
 
-                    <legend>Pozivanje donatora</legend>
-                    <div class="form-group">
-                        <label for="inputNaslov" class="col-lg-2 control-label">Naslov</label>
-                        <div class="col-lg-10">
-                         {{ Form::text('Dodajte obavijesti', null, ['class' => 'form-control']) }}
-                        </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        {{ Form::submit('Pozovi',array('class' => 'btn btn-primary')) }}
                     </div>
-                                        <div class="form-group">
-                                            <label for="textArea" class="col-lg-2 control-label">Odaberite krvnu grupu</label>
-                                            <div class="col-lg-10">
-                      {{Form::select('bloodgroup',$sveGrupe)}}
-                      </div>
-                      </div>
-                    <div class="form-group">
-                        <label for="textArea" class="col-lg-2 control-label">Dodatne informacije</label>
-                        <div class="col-lg-10">
-                           {{ Form::textarea('Dodajte obavijesti', null, ['class' => 'form-control']) }}
-                                                </div>
-
-                    </div>
-                    <div class="form-group">
-                        <div class="col-lg-10 col-lg-offset-2">
-                            {{ Form::submit('Dodaj novu lokaciju',array('class' => 'btn btn-primary')) }}
-                        </div>
-                    </div>
-                </fieldset>
+                </div>
+            </fieldset>
             {{Form::close()}}
             <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div></div>
     </div>
 </div>
 <script>
+getBloodLevelGroups();
 
+setInterval(function() {
+    getBloodLevelGroups();
+}, 15000);
+
+var groupsLoaded = 0;
+
+function getBloodLevelGroups(){
+    $.ajax({
+        type: "GET",
+        url: "api/statistics/institutions/1/bloodlevels",
+        dataType: "json",
+        success: function(criticalLevel) {
+            $.ajax({
+                type: "GET",
+                url: "api/statistics/institutions/1/bloodgrouplevels",
+                dataType: "json",
+                success: function(dataArray) {
+                    criticalLevel = criticalLevel["criticalLevel"];
+                    var criticalLevelArray = {
+                        "0-": criticalLevel,
+                        "0+": criticalLevel,
+                        "A-": criticalLevel,
+                        "A+": criticalLevel,
+                        "B-": criticalLevel,
+                        "B+": criticalLevel,
+                        "AB-": criticalLevel,
+                        "AB+": criticalLevel
+                    };
+                    var bloodGroupsQuantity = {
+                        "0-": 0,
+                        "0+": 0,
+                        "A-": 0,
+                        "A+": 0,
+                        "B-": 0,
+                        "B+": 0,
+                        "AB-": 0,
+                        "AB+": 0
+                    };
+                    for (var i in dataArray) {
+                        var bloodGroup = dataArray[i]["blood_id"];
+                        var bloodQuantity = dataArray[i]["quantity"];
+                        bloodGroupsQuantity[bloodGroup] = bloodQuantity;
+                    }
+                    fillChart(bloodGroupsQuantity, criticalLevelArray);
+                }
+            });
+        }
+    });
+}
+
+function fillChart(bloodGroupsQuantity, criticalLevel) {
     var data = {
         labels: ["AB +", "AB -", "A +", "A -", "B +", "B -", "O +", "O -"],
         datasets: [
@@ -96,39 +147,33 @@
                 label: "My First dataset",
                 fillColor: "rgba(220,220,220,0.5)",
                 strokeColor: "rgba(220,220,220,0.8)",
-                highlightFill: "rgba(220,220,220,0.75)",
-                highlightStroke: "rgba(220,220,220,1)",
-                data: [65, 59, 80, 81, 56, 55, 40, 22]
+                pointColor: "rgba(220,220,220,0.8)",
+                pointStrokeColor: "rgba(220,220,220,0.8)",
+                pointHighlightFill: "rgba(220,220,220,0.75)",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: criticalLevel
             },
             {
                 label: "My Second dataset",
                 fillColor: "rgba(151,187,205,0.5)",
                 strokeColor: "rgba(151,187,205,0.8)",
-                highlightFill: "rgba(151,187,205,0.75)",
-                highlightStroke: "rgba(151,187,205,1)",
-                data: [28, 48, 40, 19, 86, 27, 90, 31]
+                pointColor: "rgba(151,187,205,0.8)",
+                pointStrokeColor: "rgba(151,187,205,0.8)",
+                pointHighlightFill: "rgba(151,187,205,0.75)",
+                pointHighlightStroke: "rgba(151,187,205,1)",
+                data: bloodGroupsQuantity
             }
         ]
     };
-
     var ctx = document.getElementById("myChart").getContext("2d");
-    var myNewChart = new Chart(ctx).Bar(data, {responsive: true});
+    var myNewChart = new Chart(ctx).Line(data, {responsive: true});
 
-    setInterval(function() {
-        /*
-         $.ajax({
-         type: "GET",
-         url: "api/",
-         dataType: "json",
-         success: function(dataArray){
-         //id:dataArray.id,
-         }
-         });*/
-    }, 5000);
-    $('#btnOrder').click(function() {
-        $('#form').toggle('slow');
-        $("html, body").animate({scrollTop: 250}, "slow");
-    });
+}
+
+$('#btnOrder').click(function() {
+    $('#form').toggle('slow');
+    $("html, body").animate({scrollTop: 250}, "slow");
+});
 </script>
 
 
