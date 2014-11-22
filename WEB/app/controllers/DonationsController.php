@@ -21,7 +21,7 @@ class DonationsController extends BaseController {
 	 */
 	public function index()
 	{
-		$donations = Donation::orderBy('time', 'desc')->take(15)->get();
+		$donations = Donation::where("institution_id","=",Auth::user()->institution_id)->orderBy('time', 'desc')->take(15)->get();
 		$names = User::lists("name", "id");
 		$surnames = User::lists("surname", "id");
 		$usernames = User::lists("username", "id");
