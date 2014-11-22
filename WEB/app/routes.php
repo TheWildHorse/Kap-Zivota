@@ -29,11 +29,11 @@ Route::resource('users', 'UsersController');
 Route::resource('donations', 'DonationsController');
 
 Route::resource('bloodsupplies', 'BloodsuppliesController');
-/*
+
 Route::get('admin', function(){
 	return View::make("admin.index");
 });
-*/
+
 
 Route::group(array('before'=>'auth.admin'),function()
 {
