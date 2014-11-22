@@ -9,4 +9,16 @@ class Donation extends Eloquent {
 		'time' => 'required',
 		'measure' => 'required'
 	);
+
+    public function user()
+    {
+        return $this->belongsTo('User');
+    }
+
+    public function institution()
+    {
+        return $this->belongsTo('Institution');
+    }
+
+
 }

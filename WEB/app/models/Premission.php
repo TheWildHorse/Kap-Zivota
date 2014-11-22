@@ -6,4 +6,9 @@ class Premission extends Eloquent {
 	public static $rules = array(
 		'name' => 'required'
 	);
+
+    public function users()
+    {
+        return $this->hasMany('User');
+    }
 }

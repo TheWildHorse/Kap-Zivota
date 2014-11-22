@@ -16,8 +16,10 @@ class Institution extends Eloquent {
         return $this->hasMany('User');
     }
 
-    public function donation()
+    public function donations()
     {
-        return $this->belongsToMany('User','donations','institution_id','user_id');
+        return $this->hasMany('Donation');
     }
+
+
 }

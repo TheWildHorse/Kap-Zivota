@@ -9,6 +9,7 @@ class Blood extends Eloquent {
 
     public function users()
     {
-        $this->hasMany('User');
+        return $this->hasMany('User');
     }
+
 }
