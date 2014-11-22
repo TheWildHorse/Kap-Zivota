@@ -26,6 +26,10 @@ public class PreLogin extends Activity implements View.OnClickListener {
         b2.setOnClickListener(this);
         b3.setOnClickListener(this);
 
+        if(!Singleton.getUser_id(this).isEmpty()){
+            Intent i = new Intent("kap.trippleit.com.kapzivota.HOME");
+            startActivity(i);
+        }
     }
 
     @Override

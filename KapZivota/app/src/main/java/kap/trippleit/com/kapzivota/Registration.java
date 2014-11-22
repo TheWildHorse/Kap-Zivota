@@ -58,10 +58,6 @@ public class Registration extends Activity implements View.OnClickListener {
         passRe.setText("1111");
         pass.setText("1111");
 
-
-        Log.d("KRUNO", "[INIT] Trenutni apy_key: " + Singleton.getApi_key(this));
-        Log.d("KRUNO", "[INIT] Trenutni id: " + Singleton.getUser_id(this));
-
     }
 
     @Override
@@ -88,7 +84,6 @@ public class Registration extends Activity implements View.OnClickListener {
     public class PostData extends AsyncTask<String, Integer, String> {
         @Override
         protected String doInBackground(String... params) {
-// Create a new HttpClient and Post Header
             HttpClient httpclient = new DefaultHttpClient();
             HttpPost httppost = new HttpPost("http://178.62.168.32/api/users/register");
 
