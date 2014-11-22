@@ -17,6 +17,9 @@ class UsersController extends BaseController {
 		return false;
 	}
 
+
+
+
 	public static  function core_edit($data) {
 
 			$user = User::find($data['id']);
@@ -38,7 +41,7 @@ class UsersController extends BaseController {
 		{
             $api =  str_random(64);
 			$user = User::create(array('email' => $email, 'password' => Hash::make($password), 'api_key' => str_random(64)));
-			return $user->api_key;
+			return array("api"=>$user->api_key,"id"=>$user->id);
 		}
         else
 		return 0; // Vraća 0 ako podatci nisu ispravni
