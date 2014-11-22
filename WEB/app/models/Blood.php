@@ -12,4 +12,9 @@ class Blood extends Eloquent {
         return $this->hasMany('User');
     }
 
+	public function supplies()
+	{
+		return $this->hasMany('BloodSupply');
+	}
+
 }

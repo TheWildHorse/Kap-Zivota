@@ -21,5 +21,10 @@ class Institution extends Eloquent {
         return $this->hasMany('Donation');
     }
 
+	public function supplies()
+	{
+		return $this->hasMany('BloodSupply');
+	}
+
 
 }

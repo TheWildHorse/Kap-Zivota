@@ -28,3 +28,5 @@ Route::resource('bloods', 'BloodsController');
 Route::resource('users', 'UsersController');
 
 Route::resource('donations', 'DonationsController');
+
+Route::resource('bloodsupplies', 'BloodsuppliesController');
