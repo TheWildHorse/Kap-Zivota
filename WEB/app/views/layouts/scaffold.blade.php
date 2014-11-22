@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <!--<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> -->
-        <link rel="stylesheet" href="css/bootstrap.css">
+       {{ HTML::style('css/bootstrap.css'); }}
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script src="js/bootstrap.js"></script>
+        {{ HTML::script('js/bootstrap.js') }}
         <style>
             body { padding-top: 20px; }
         </style>
