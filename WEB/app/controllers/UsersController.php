@@ -2,18 +2,33 @@
 
 class UsersController extends BaseController {
 
-	/**
-	 * User Repository
-	 *
-	 * @var User
-	 */
 	protected $user;
-
 	public function __construct(User $user)
 	{
 		$this->user = $user;
 	}
 
+
+	// Osnovna funkcionalnost
+	public function authenticate($email, $password) {
+		if (Auth::attempt(array('email' => $email, 'password' => $password))) {
+			return true;
+		}
+		return false;
+	}
+
+	// -------------------- API ----------------------
+
+	// -------------------- Web ----------------------
+	public function login() {
+		return View::make('users.login');
+	}
+
+	public function web_Auth() {
+		$input = Input::all();
+		if($this->authenticate($input['email'], $input['password']))  return View::make('users.login');
+		else return View::make('users.login')->withErrors('Neuspjeli pokušaj logiranja!');
+	}
 	/**
 	 * Display a listing of the resource.
 	 *

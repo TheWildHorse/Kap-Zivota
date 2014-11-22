@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/login', 'UsersController@login');
+Route::post('/login', 'UsersController@web_Auth');
 
 
 Route::resource('institutions', 'InstitutionsController');
