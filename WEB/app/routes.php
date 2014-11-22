@@ -42,6 +42,6 @@ Route::get('superAdmin', function(){
 Route::group(array('before'=>'auth.admin'),function()
 {
 
-    Route::get('administrator/sendpush','AdminController@sendPush');
+    Route::post('administrator/sendpush','AdminController@sendPush');
     Route::resource('administrator', 'AdminController');
 });

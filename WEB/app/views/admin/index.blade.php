@@ -61,6 +61,7 @@
                     <div class="form-group">
                         <label for="inputNaslov" class="col-lg-2 control-label">Naslov</label>
                         <div class="col-lg-10">
+                         {{ Form::text('Dodajte obavijesti', null, ['class' => 'form-control']) }}
                         </div>
                     </div>
                                         <div class="form-group">

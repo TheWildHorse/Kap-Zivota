@@ -20,7 +20,9 @@ class AdminController extends BaseController
     public function sendPush()
     {
 
-        require_once('PushBots.class.php');
+        $dodaneObavijesti=Input::get('Dodajte_obavijesti');
+
+       /* require_once('PushBots.class.php');
         $pb = new PushBots();
         // Application ID
         $appID = '54705e2f1d0ab18e108b4595';
