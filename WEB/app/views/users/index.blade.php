@@ -2,23 +2,21 @@
 
 @section('main')
 
-<h1>All Users</h1>
+<h1 class="text-center">Svi Korisnici</h1>
 
-<p>{{ link_to_route('users.create', 'Add New User', null, array('class' => 'btn btn-lg btn-success')) }}</p>
-
+<div class="well">
 @if ($users->count())
-	<table class="table table-striped">
+	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
-				<th>Institution_id</th>
-				<th>Blood_id</th>
-				<th>Gener</th>
-				<th>Username</th>
-				<th>Password</th>
-				<th>Name</th>
-				<th>Surname</th>
+			    <th>Korisničko ime</th>
+			    <th>Ime</th>
+                <th>Prezime</th>
+                <th>Krvna grupa</th>
+				<th>Spol</th>
 				<th>Email</th>
-				<th>Birthdate</th>
+				<th>Datum Rođenja</th>
+				<th>Institucija</th>
 				<th>&nbsp;</th>
 			</tr>
 		</thead>
@@ -26,27 +24,27 @@
 		<tbody>
 			@foreach ($users as $user)
 				<tr>
-					<td>{{{ $user->institution_id }}}</td>
-					<td>{{{ $user->blood_id }}}</td>
-					<td>{{{ $user->gener }}}</td>
-					<td>{{{ $user->username }}}</td>
-					<td>{{{ $user->password }}}</td>
-					<td>{{{ $user->name }}}</td>
-					<td>{{{ $user->surname }}}</td>
+				    <td>{{{ $user->username }}}</td>
+	                <td>{{{ $user->name }}}</td>
+    				<td>{{{ $user->surname }}}</td>
+    				<td>{{{ $blood_types[$user->blood_id] }}}</td>
+					<td>{{{ $user->gender }}}</td>
 					<td>{{{ $user->email }}}</td>
 					<td>{{{ $user->birthdate }}}</td>
+					<td>{{{ $institutions[$user->institution_id] }}}</td>
                     <td>
                         {{ Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'route' => array('users.destroy', $user->id))) }}
-                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+                            {{ Form::submit('Izbriši', array('class' => 'btn btn-danger')) }}
                         {{ Form::close() }}
-                        {{ link_to_route('users.edit', 'Edit', array($user->id), array('class' => 'btn btn-info')) }}
+                        {{ link_to_route('users.edit', 'Uredi', array($user->id), array('class' => 'btn btn-info')) }}
                     </td>
 				</tr>
 			@endforeach
 		</tbody>
 	</table>
 @else
-	There are no users
+	Trenutno nema korisnika.
 @endif
+</div>
 
 @stop

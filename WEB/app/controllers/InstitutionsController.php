@@ -106,7 +106,7 @@ class InstitutionsController extends BaseController {
 			$institution = $this->institution->find($id);
 			$institution->update($input);
 
-			return Redirect::route('institutions.show', $id);
+			return Redirect::route('institutions.index', $id);
 		}
 
 		return Redirect::route('institutions.edit', $id)

@@ -3,8 +3,8 @@
 @section('main')
 
 <div class="row">
-    <div class="col-md-10 col-md-offset-2">
-        <h1>Edit User</h1>
+    <div class="col-md-12">
+        <h1 class="text-center">Uredi Korisnika</h1>
 
         @if ($errors->any())
         	<div class="alert alert-danger">
@@ -15,78 +15,90 @@
         @endif
     </div>
 </div>
+<br>
 
 {{ Form::model($user, array('class' => 'form-horizontal', 'method' => 'PATCH', 'route' => array('users.update', $user->id))) }}
 
-        <div class="form-group">
-            {{ Form::label('institution_id', 'Institution_id:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::input('number', 'institution_id', Input::old('institution_id'), array('class'=>'form-control')) }}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ Form::label('username', 'Korisničko ime:', array('class'=>'col-md-4 control-label')) }}
+                    <div class="col-sm-8">
+                      {{ Form::text('username', Input::old('username'), array('class'=>'form-control', 'placeholder'=>'Username')) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                     {{ Form::label('gender', 'Spol:', array('class'=>'col-md-4 control-label')) }}
+                     <div class="col-sm-8">
+                       {{ Form::text('gender', Input::old('gender'), array('class'=>'form-control', 'placeholder'=>'')) }}
+                     </div>
+                </div>
+                <div class="form-group">
+                     {{ Form::label('email', 'Email:', array('class'=>'col-md-4 control-label')) }}
+                     <div class="col-sm-8">
+                       {{ Form::text('email', Input::old('email'), array('class'=>'form-control', 'placeholder'=>'Email')) }}
+                     </div>
+                </div>
+                <div class="form-group">
+                    {{ Form::label('blood_id', 'Krvna grupa:', array('class'=>'col-md-4 control-label')) }}
+                    <div class="col-sm-8">
+                      {{ Form::select('blood_id', $blood_types, Input::old('blood_id'), array('class' => 'form-control')) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ Form::label('name', 'Ime:', array('class'=>'col-md-4 control-label')) }}
+                    <div class="col-sm-8">
+                      {{ Form::text('name', Input::old('name'), array('class'=>'form-control', 'placeholder'=>'Name')) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ Form::label('surname', 'Prezime:', array('class'=>'col-md-4 control-label')) }}
+                    <div class="col-sm-8">
+                      {{ Form::text('surname', Input::old('surname'), array('class'=>'form-control', 'placeholder'=>'Surname')) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ Form::label('birthdate', 'Datum rođenja:', array('class'=>'col-md-4 control-label')) }}
+                    <div class="col-sm-8">
+                      {{ Form::text('birthdate', Input::old('birthdate'), array('class'=>'form-control', 'placeholder'=>'Birthdate')) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ Form::label('institution_id', 'Institucija:', array('class'=>'col-md-4 control-label')) }}
+                    <div class="col-sm-8">
+                      {{ Form::select('institution_id', $institutions, Input::old('institution_id'), array('class' => 'form-control')) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                 <div class="form-group">
+                    {{ Form::label('premission_id', 'Razina dopuštenja:', array('class'=>'col-md-4 control-label')) }}
+                    <div class="col-sm-8">
+                      {{ Form::select('premission_id', $premissions, Input::old('premission_id'), array('class' => 'form-control')) }}
+                    </div>
+                 </div>
             </div>
         </div>
 
-        <div class="form-group">
-            {{ Form::label('blood_id', 'Blood_id:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::input('number', 'blood_id', Input::old('blood_id'), array('class'=>'form-control')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('gener', 'Gener:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('gener', Input::old('gener'), array('class'=>'form-control', 'placeholder'=>'Gener')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('username', 'Username:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('username', Input::old('username'), array('class'=>'form-control', 'placeholder'=>'Username')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('password', 'Password:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('password', Input::old('password'), array('class'=>'form-control', 'placeholder'=>'Password')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('name', 'Name:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('name', Input::old('name'), array('class'=>'form-control', 'placeholder'=>'Name')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('surname', 'Surname:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('surname', Input::old('surname'), array('class'=>'form-control', 'placeholder'=>'Surname')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('email', 'Email:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('email', Input::old('email'), array('class'=>'form-control', 'placeholder'=>'Email')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('birthdate', 'Birthdate:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('birthdate', Input::old('birthdate'), array('class'=>'form-control', 'placeholder'=>'Birthdate')) }}
-            </div>
-        </div>
 
 
-<div class="form-group">
-    <label class="col-sm-2 control-label">&nbsp;</label>
-    <div class="col-sm-10">
-      {{ Form::submit('Update', array('class' => 'btn btn-lg btn-primary')) }}
-      {{ link_to_route('users.show', 'Cancel', $user->id, array('class' => 'btn btn-lg btn-default')) }}
+
+
+
+
+
+<div class="form-group text-center">
+    <div class="col-sm-12">
+      {{ Form::submit('Spremi', array('class' => 'btn btn-lg btn-primary')) }}
+      {{ link_to_route('users.index', 'Odustani', $user->id, array('class' => 'btn btn-lg btn-default')) }}
     </div>
 </div>
 

@@ -67,8 +67,11 @@ class UsersController extends BaseController {
 	public function index()
 	{
 		$users = $this->user->all();
+		$blood_types = Blood::lists("type", "id");
+		$institutions = Institution::lists("name", "id");
 
-		return View::make('users.index', compact('users'));
+
+		return View::make('users.index', compact('users', 'blood_types', 'institutions'));
 	}
 
 	/**
@@ -126,13 +129,16 @@ class UsersController extends BaseController {
 	public function edit($id)
 	{
 		$user = $this->user->find($id);
+		$blood_types = Blood::lists("type", "id");
+		$institutions = Institution::lists("name", "id");
+		$premissions = Premission::lists("name", "id");
 
 		if (is_null($user))
 		{
 			return Redirect::route('users.index');
 		}
 
-		return View::make('users.edit', compact('user'));
+		return View::make('users.edit', compact('user', 'blood_types', 'institutions', 'premissions'));
 	}
 
 	/**
@@ -144,14 +150,14 @@ class UsersController extends BaseController {
 	public function update($id)
 	{
 		$input = array_except(Input::all(), '_method');
-		$validation = Validator::make($input, User::$rules);
+		$validation = Validator::make($input, User::$update_rules);
 
 		if ($validation->passes())
 		{
 			$user = $this->user->find($id);
 			$user->update($input);
 
-			return Redirect::route('users.show', $id);
+			return Redirect::route('users.index', $id);
 		}
 
 		return Redirect::route('users.edit', $id)
