@@ -16,6 +16,7 @@ class CreateUsersTable extends Migration {
 			$table->increments('id');
 			$table->integer('institution_id');
 			$table->integer('blood_id');
+			$table->integer('premission_id');
 			$table->string('gender');
 			$table->string('username');
 			$table->string('password');
