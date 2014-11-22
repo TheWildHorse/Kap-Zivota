@@ -21,9 +21,12 @@ class DonationsController extends BaseController {
 	 */
 	public function index()
 	{
-		$donations = $this->donation->all();
+		$donations = Donation::orderBy('time', 'desc')->take(15)->get();
+		$names = User::lists("name", "id");
+		$surnames = User::lists("surname", "id");
+		$usernames = User::lists("username", "id");
 
-		return View::make('donations.index', compact('donations'));
+		return View::make('donations.index', compact('donations', 'names', 'surnames', 'usernames'));
 	}
 
 	/**
@@ -33,7 +36,8 @@ class DonationsController extends BaseController {
 	 */
 	public function create()
 	{
-		return View::make('donations.create');
+		$usernames = User::lists("username", "id");
+		return View::make('donations.create', compact('usernames'));
 	}
 
 	/**
@@ -43,12 +47,26 @@ class DonationsController extends BaseController {
 	 */
 	public function store()
 	{
-		$input = Input::all();
+		$input = Input::only('user_id');
+		$input['institution_id'] = Auth::user()->institution_id;
+		$input['time'] = date('Y-m-d H:i:s', time());
+		$input['measure'] = 0.45;
+
 		$validation = Validator::make($input, Donation::$rules);
 
 		if ($validation->passes())
 		{
 			$this->donation->create($input);
+
+			$donor = User::find($input['user_id']);
+			$current = BloodSupply::where('institution_id', "=", Auth::user()->institution_id)->where('blood_id', "=", $donor->blood_id)->first();
+			if(count($current) > 0) {
+				$current->quantity = $current->quantity+1;
+				$current->save();
+			}
+			else {
+				BloodSupply::create(array('institution_id' => Auth::user()->institution_id, 'blood_id' => $donor->blood_id, 'quantity' => 1));
+			}
 
 			return Redirect::route('donations.index');
 		}
