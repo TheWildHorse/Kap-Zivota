@@ -2,7 +2,7 @@
 
 @section('main')
 
-
+<?php $sveGrupe = Blood::lists('type','id');?>
 <script src="js/Chart.js"></script>
 
 <div class="row">
@@ -54,29 +54,35 @@
     <div class="col-lg-3"></div>
     <div class="col-lg-6" id="form" style="display:none">
         <div class="well bs-component">
-            <form class="form-horizontal">
+           	{{Form::open(array('action' => 'AdminController@sendPush'))}}
                 <fieldset>
+
                     <legend>Pozivanje donatora</legend>
                     <div class="form-group">
                         <label for="inputNaslov" class="col-lg-2 control-label">Naslov</label>
                         <div class="col-lg-10">
-                            <input type="password" class="form-control" id="inputNaslov" placeholder="Naslov">
                         </div>
                     </div>
+                                        <div class="form-group">
+                                            <label for="textArea" class="col-lg-2 control-label">Odaberite krvnu grupu</label>
+                                            <div class="col-lg-10">
+                      {{Form::select('bloodgroup',$sveGrupe)}}
+                      </div>
+                      </div>
                     <div class="form-group">
-                        <label for="inputOpis" class="col-lg-2 control-label">Opis</label>
+                        <label for="textArea" class="col-lg-2 control-label">Dodatne informacije</label>
                         <div class="col-lg-10">
-                            <textarea class="form-control" rows="3" id="inputOpis" placeholder="Opis"></textarea>
-                        </div>
+                           {{ Form::textarea('Dodajte obavijesti', null, ['class' => 'form-control']) }}
+                                                </div>
+
                     </div>
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-2">
-                            <button class="btn btn-default">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            {{ Form::submit('Dodaj novu lokaciju',array('class' => 'btn btn-primary')) }}
                         </div>
                     </div>
                 </fieldset>
-            </form>
+            {{Form::close()}}
             <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div></div>
     </div>
 </div>
