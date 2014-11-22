@@ -16,35 +16,26 @@ Route::get('/login', 'UsersController@login');
 Route::post('/login', 'UsersController@web_Auth');
 
 
-Route::resource('premissions', 'PremissionsController');
-
-Route::resource('employees', 'EmployeesController');
-
-Route::resource('bloods', 'BloodsController');
-
-Route::resource('donations', 'DonationsController');
-
-Route::resource('bloodsupplies', 'BloodsuppliesController');
-
-Route::get('admin', function(){
-	return View::make("admin.index");
-});
-
-Route::get('superAdmin', array('as' => 'superAdmin', 'to' => function(){
-	return View::make("superAdmin.index");
-}));
-
-
 Route::group(array('before'=>'auth.admin'),function()
 {
-	Route::get('/logout', array('as' => 'logout', 'to' => 'UsersController@web_Logout'));
+	Route::get('/logout', 'UsersController@web_Logout');
+
+	Route::get('admin', function(){
+		return View::make("admin.index");
+	});
 	Route::post('administrator/sendpush','AdminController@sendPush');
     Route::resource('administrator', 'AdminController');
+	Route::resource('donations', 'DonationsController');
+	Route::resource('bloodsupplies', 'BloodsuppliesController');
 });
 
 Route::group(array('before'=>'auth.superadmin'),function()
 {
 	Route::get('/logout', 'UsersController@web_Logout');
+
+	Route::get('superAdmin', array('as' => 'superAdmin', 'to' => function(){
+		return View::make("superAdmin.index");
+	}));
 	Route::resource('users', 'UsersController');
 	Route::resource('institutions', 'InstitutionsController');
 });
