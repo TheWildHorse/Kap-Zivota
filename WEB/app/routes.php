@@ -15,3 +15,16 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+
+Route::resource('institutions', 'InstitutionsController');
+
+Route::resource('premissions', 'PremissionsController');
+
+Route::resource('employees', 'EmployeesController');
+
+Route::resource('bloods', 'BloodsController');
+
+Route::resource('users', 'UsersController');
+
+Route::resource('donations', 'DonationsController');
