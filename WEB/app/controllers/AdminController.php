@@ -16,12 +16,12 @@ class AdminController extends BaseController
 
 
 
-        }
+
     }//function index
 
     public function sendPush()
     {
-        return View::make('users.sendpush');
+        return View::make('admin.sendpush');
     }
 
 }

@@ -30,4 +30,10 @@ Route::resource('donations', 'DonationsController');
 
 Route::resource('bloodsupplies', 'BloodsuppliesController');
 
-Route::resource('administrator','AdminController');
+
+Route::group(array('before'=>'auth.admin'),function()
+{
+
+    Route::get('administrator/sendpush','AdminController@sendPush');
+    Route::resource('administrator', 'AdminController');
+});

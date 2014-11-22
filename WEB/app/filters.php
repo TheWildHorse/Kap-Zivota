@@ -53,6 +53,7 @@ Route::filter('auth.superadmin', function()
 
 Route::filter('auth.admin', function()
 {
+    $var = Auth::user();
 	if (Auth::guest())
 	{
 		if (Request::ajax())
