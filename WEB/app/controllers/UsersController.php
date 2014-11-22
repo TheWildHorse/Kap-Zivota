@@ -10,11 +10,39 @@ class UsersController extends BaseController {
 
 
 	// Osnovna funkcionalnost
-	public function authenticate($email, $password) {
+	public function core_authenticate($email, $password) {
 		if (Auth::attempt(array('email' => $email, 'password' => $password))) {
 			return true;
 		}
 		return false;
+	}
+
+	public function core_edit($data) {
+		$validation = Validator::make($data, User::$rules);
+
+		if ($validation->passes())
+		{
+			$user = $this->user->find($data['id']);
+
+			if($user->api_key == $data['api_key']) {
+				$user->update($data);
+				return true;
+			}
+			else return false;
+		}
+		return false;
+	}
+
+	public function core_register() {
+		$input = Input::only('email', 'password');
+		$validation = Validator::make($input, User::$rules);
+
+		if ($validation->passes())
+		{
+			$this->user->create(array('email' => $input['email'], 'password' => Hash::make($input['password']), 'api_key' => str_random(64)));
+			return $this->user->id;
+		}
+		return 0; // Vraća 0 ako podatci nisu ispravni
 	}
 
 	// -------------------- API ----------------------
@@ -26,7 +54,7 @@ class UsersController extends BaseController {
 
 	public function web_Auth() {
 		$input = Input::all();
-		if($this->authenticate($input['email'], $input['password']))  return View::make('users.login');
+		if($this->core_authenticate($input['email'], $input['password']))  return View::make('users.login');
 		else return View::make('users.login')->withErrors('Neuspjeli pokušaj logiranja!');
 	}
 	/**
