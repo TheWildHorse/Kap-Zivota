@@ -6,4 +6,9 @@ class Blood extends Eloquent {
 	public static $rules = array(
 		'type' => 'required'
 	);
+
+    public function users()
+    {
+        $this->hasMany('User');
+    }
 }

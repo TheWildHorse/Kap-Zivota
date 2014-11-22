@@ -10,4 +10,14 @@ class Institution extends Eloquent {
 		'geo_lat' => 'required',
 		'get_long' => 'required'
 	);
+
+    public  function users()
+    {
+        return $this->hasMany('User');
+    }
+
+    public function donation()
+    {
+        return $this->belongsToMany('User','donations','institution_id','user_id');
+    }
 }
