@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'AddApiKeyToUser' => $baseDir . '/app/database/migrations/2014_11_22_135203_add_api_key_to_user.php',
     'AddCriticalLevel' => $baseDir . '/app/database/migrations/2014_11_22_184005_add_critical_level.php',
+    'AddRememberToken' => $baseDir . '/app/database/migrations/2014_11_22_215057_add_remember_token.php',
     'AddUdidToUser' => $baseDir . '/app/database/migrations/2014_11_22_170623_add_udid_to_user.php',
     'AdminController' => $baseDir . '/app/controllers/AdminController.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',

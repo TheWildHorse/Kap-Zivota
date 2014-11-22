@@ -17,6 +17,10 @@ class UsersController extends BaseController {
 		return false;
 	}
 
+	public function core_logout() {
+		Auth::logout();
+	}
+
 
 
 
@@ -56,8 +60,13 @@ class UsersController extends BaseController {
 
 	public function web_Auth() {
 		$input = Input::all();
-		if($this->core_authenticate($input['email'], $input['password']))  return View::make('users.login');
+		if($this->core_authenticate($input['email'], $input['password']))  return Redirect::to('superAdmin');
 		else return View::make('users.login')->withErrors('Neuspjeli pokušaj logiranja!');
+	}
+
+	public function web_Logout() {
+		$this->core_logout();
+		return Redirect::to('login');
 	}
 	/**
 	 * Display a listing of the resource.

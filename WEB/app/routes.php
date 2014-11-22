@@ -16,15 +16,11 @@ Route::get('/login', 'UsersController@login');
 Route::post('/login', 'UsersController@web_Auth');
 
 
-Route::resource('institutions', 'InstitutionsController');
-
 Route::resource('premissions', 'PremissionsController');
 
 Route::resource('employees', 'EmployeesController');
 
 Route::resource('bloods', 'BloodsController');
-
-Route::resource('users', 'UsersController');
 
 Route::resource('donations', 'DonationsController');
 
@@ -41,7 +37,14 @@ Route::get('superAdmin', array('as' => 'superAdmin', 'to' => function(){
 
 Route::group(array('before'=>'auth.admin'),function()
 {
-
-    Route::post('administrator/sendpush','AdminController@sendPush');
+	Route::get('/logout', array('as' => 'logout', 'to' => 'UsersController@web_Logout'));
+	Route::post('administrator/sendpush','AdminController@sendPush');
     Route::resource('administrator', 'AdminController');
+});
+
+Route::group(array('before'=>'auth.superadmin'),function()
+{
+	Route::get('/logout', 'UsersController@web_Logout');
+	Route::resource('users', 'UsersController');
+	Route::resource('institutions', 'InstitutionsController');
 });

@@ -38,7 +38,7 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">Odjava</a></li>
+                        <li><a href="{{ route("logout") }}" >Odjava</a></li>
                     </ul>
 
                 </div>
