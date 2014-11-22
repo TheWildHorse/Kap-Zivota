@@ -58,16 +58,15 @@
                 <fieldset>
                     <legend>Pozivanje donatora</legend>
                     <div class="form-group">
-                        <label for="inputPassword" class="col-lg-2 control-label">Naslov</label>
+                        <label for="inputNaslov" class="col-lg-2 control-label">Naslov</label>
                         <div class="col-lg-10">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                            <input type="password" class="form-control" id="inputNaslov" placeholder="Naslov">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="textArea" class="col-lg-2 control-label">Opis</label>
+                        <label for="inputOpis" class="col-lg-2 control-label">Opis</label>
                         <div class="col-lg-10">
-                            <textarea class="form-control" rows="3" id="textArea"></textarea>
-                            <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+                            <textarea class="form-control" rows="3" id="inputOpis" placeholder="Opis"></textarea>
                         </div>
                     </div>
                     <div class="form-group">

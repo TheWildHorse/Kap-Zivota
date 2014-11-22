@@ -34,6 +34,10 @@ Route::get('admin', function(){
 	return View::make("admin.index");
 });
 
+Route::get('superAdmin', function(){
+	return View::make("superAdmin.index");
+});
+
 
 Route::group(array('before'=>'auth.admin'),function()
 {

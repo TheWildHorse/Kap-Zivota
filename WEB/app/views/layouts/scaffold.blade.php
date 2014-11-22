@@ -11,11 +11,17 @@
         </style>
     </head>
 
-    <body data-twttr-rendered="true" style="background-image: url('img/crossword.png');">
+    <body data-twttr-rendered="true" style="background-image: url('{{ asset ('img/crossword.png') }} ');">
         <div class="navbar navbar-default navbar-fixed-top" >
             <div class="container" style="font-size:132%">
+
                 <div class="navbar-header">
-                    <a href="./" class="navbar-brand">Bootswatch</a>
+
+
+                    <img height="37px" width="45px" src="{{ asset ("img/logo1000_1000.png") }}"/>
+                </div>
+                <div class="navbar-header">
+                    <a href="./" class="navbar-brand" style="color:#E8776B">  Kap života</a>
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -41,8 +47,8 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="http://builtwithbootstrap.com/" target="_blank">Built With Bootstrap</a></li>
-                        <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a></li>
+                        <li><a href="http://builtwithbootstrap.com/" target="_blank">Moji podaci</a></li>
+                        <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">Odjava</a></li>
                     </ul>
 
                 </div>
@@ -73,9 +79,9 @@
                         <p>Kap života</p>
                         <p>Made by <a href="#" rel="nofollow">Noobs Freestyle</a> @ <a href="http://rsc.foi.hr/">HACKATHON</a>.</p>
                     </div>
-                    <div class="col-lg-1" style="bottom:0"> <img width="85px" height="85px" src="img/footer_1.png"/></div>
-                    <div class="col-lg-1" style="bottom:0"><img width="85px" height="85px" src="img/footer_2.png"/></div>
-                    <div class="col-lg-1" style="bottom:0"><img width="85px" height="85px" src="img/footer_3.png"/></div>
+                    <div class="col-lg-1" style="bottom:0"> <img width="85px" height="85px" src="{{ asset ("img/footer_1.png") }}"/></div>
+                    <div class="col-lg-1" style="bottom:0"><img width="85px" height="85px" src="{{ asset ("img/footer_2.png") }}"/></div>
+                    <div class="col-lg-1" style="bottom:0"><img width="85px" height="85px" src="{{ asset ("img/footer_3.png") }}"/></div>
                 </div>
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script>
