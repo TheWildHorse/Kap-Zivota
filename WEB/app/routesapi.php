@@ -1,6 +1,20 @@
 <?php
 Route::api(['version' => 'v1', 'prefix' => 'api'], function () {
 
+
+    Route::post('users/login',function()
+    {
+
+       $email = Input::get('email');
+       $password =Input::get('password');
+       return UsersController::core_register($email,$password);
+
+    });
+
+
+
+
+
     //Vrace sve korisnike /cisto testna verzija
     Route::get('users', function () {
         return User::all();

@@ -33,15 +33,17 @@ class UsersController extends BaseController {
 		return false;
 	}
 
-	public function core_register($email,$password) {
+	public static  function core_register($email,$password) {
 
 		$validation = Validator::make(array('email'=>$email,'password'=>$password), User::$rules);
 
 		if ($validation->passes())
 		{
-			$this->user->create(array('email' => $email, 'password' => Hash::make($password), 'api_key' => str_random(64)));
-			return $this->user->api_key;
+            $api =  str_random(64);
+			$user = User::create(array('email' => $email, 'password' => Hash::make($password), 'api_key' => str_random(64)));
+			return $user->api_key;
 		}
+        else
 		return 0; // Vraća 0 ako podatci nisu ispravni
 	}
 
