@@ -8,7 +8,7 @@ class Institution extends Eloquent {
 		'name' => 'required',
 		'description' => 'required',
 		'geo_lat' => 'required',
-		'get_long' => 'required'
+		'geo_long' => 'required'
 	);
 
     public  function users()

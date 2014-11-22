@@ -20,7 +20,7 @@
         </style>
     </head>
 
-    <body style="background-image: url('{{ asset("img/light_wool.png") }}');">
+    <body style="background-image: url('{{ asset("img/crossword.png") }}');">
         <div class="droplet">
             {{ Form::open(array('url' => '/login', 'class' => 'form-horizontal')) }}
 
