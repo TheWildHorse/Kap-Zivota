@@ -4,15 +4,15 @@ class PremissionsTableSeeder extends Seeder {
 
 	public function run()
 	{
-		// Uncomment the below to wipe the table clean before populating
-		// DB::table('premissions')->truncate();
+		DB::table('premissions')->truncate();
 
 		$premissions = array(
-
+			array('name' => 'user'),
+			array('name' => 'admin'),
+			array('name' => 'superadmin'),
 		);
 
-		// Uncomment the below to run the seeder
-		// DB::table('premissions')->insert($premissions);
+		DB::table('premissions')->insert($premissions);
 	}
 
 }

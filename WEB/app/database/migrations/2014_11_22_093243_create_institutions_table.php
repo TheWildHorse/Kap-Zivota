@@ -17,7 +17,7 @@ class CreateInstitutionsTable extends Migration {
 			$table->string('name');
 			$table->text('description');
 			$table->string('geo_lat');
-			$table->string('get_long');
+			$table->string('geo_long');
 			$table->timestamps();
 		});
 	}
