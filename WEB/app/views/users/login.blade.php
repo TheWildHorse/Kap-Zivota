@@ -3,7 +3,7 @@
 @section('main')
 
 <div class="row">
-    <div class="col-md-10 col-md-offset-2">
+    <div class="col-md-7 col-md-offset-5">
         <h1>Log in</h1>
 
         @if ($errors->any())
@@ -15,7 +15,7 @@
         @endif
     </div>
 </div>
-
+<div class ="well bs-component" style="background-color:white;font-size:140%">
 {{ Form::open(array('url' => '/login', 'class' => 'form-horizontal')) }}
 
         <div class="form-group">
@@ -41,7 +41,7 @@
 </div>
 
 {{ Form::close() }}
-
+</div>
 @stop
 
 
