@@ -88,11 +88,11 @@ Route::api(['version' => 'v1', 'prefix' => 'api'], function () {
         return  count(User::find($id)->donations);
     });
 
-    Route::get('statistics/{id}/institutions/dotanionsno',function($id){
+    Route::get('statistics/institutions/{id}/dotanionsno',function($id){
         return count(Institution::find($id)->donations);
     });
 
-    Route::get('statistics/{id}/institutions/mostdonations',function($id)
+    Route::get('statistics/institutions/{id}/mostdonations',function($id)
     {
         $i= array_count_values(Institution::find($id)->donations->lists('user_id'));
         arsort($i);
@@ -100,6 +100,25 @@ Route::api(['version' => 'v1', 'prefix' => 'api'], function () {
         $returnValue = array();
         $returnValue[0]=array($user->id,$user->name,$user->surname);
         return $returnValue;
+    });
+
+
+    Route::get('statistics/institutions/{id}/bloodlevels',function($id)
+    {
+       $criticalBloodLevel =  Institution::find($id)->critical_level;
+        $bloodLevel = count(Donation::where('institution_id','=',$id)->get());
+       return array('criticalLevel'=>$criticalBloodLevel,'measure'=>$bloodLevel*450);
+    });
+
+    Route::get('statistics/institutions/{id}/bloodgrouplevels',function($id)
+    {
+        $supplies = BloodSupply::whereInstitutionId($id)->get();
+        $return = array();
+        foreach($supplies as $supply){
+            $name = Blood::find($supply->blood_id)->type;
+            array_push($return, array("blood_id" => $name, "quantity"=> $supply->quantity));
+        }
+        return $return;
     });
 
 

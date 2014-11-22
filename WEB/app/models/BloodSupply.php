@@ -2,6 +2,7 @@
 
 class BloodSupply extends Eloquent {
 	protected $guarded = array();
+    public $table = "BloodSupplies";
 
 	public static $rules = array(
 		'institution_id' => 'required',
