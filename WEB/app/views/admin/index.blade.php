@@ -55,43 +55,41 @@
     <div class="col-lg-6" id="form" style="display:none">
         <div class="well bs-component">
 
-           	{{Form::open(array('action' => 'AdminController@sendPush'))}}
-                <fieldset>
+            {{Form::open(array('class' => 'form-horizontal', 'action' => 'AdminController@sendPush'))}}
+            <fieldset>
 
-                    <legend>Pozivanje donatora</legend>
-                    <div class="form-group">
-                        <label for="inputNaslov" class="col-lg-2 control-label">Naslov</label>
-                        <div class="col-lg-10">
-                         {{ Form::text('Naslov', null, ['class' => 'form-control']) }}
-                        </div>
+                <legend>Pozivanje donatora</legend>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Naslov</label>
+                    <div class="col-lg-10">
+                        {{ Form::text('Naslov', null, ['class' => 'form-control']) }}
                     </div>
-                                        <div class="form-group">
-                                            <label for="textArea" class="col-lg-2 control-label">Odaberite krvnu grupu</label>
-                                            <div class="col-lg-10">
-                      {{Form::select('bloodgroup',$sveGrupe)}}
-                      </div>
-                      </div>
-                    <div class="form-group">
-                        <label for="textArea" class="col-lg-2 control-label">Dodatne informacije</label>
-                        <div class="col-lg-10">
-                           {{ Form::textarea('Dodajteobavijesti', null, ['class' => 'form-control']) }}
-                                                </div>
-
-
+                </div>
+                <div class="form-group">
+                    <label  class="col-lg-2 control-label">Krvna grupa</label>
+                    <div class="col-lg-10">
+                        {{Form::select('bloodgroup',$sveGrupe, null, ['class' => 'form-control'])}}
                     </div>
-
+                </div>
+                <div class="form-group">
+                    <label for="textArea" class="col-lg-2 control-label">Dodatne informacije</label>
+                    <div class="col-lg-10">
+                        {{ Form::textarea('Dodajteobavijesti', null, ['class' => 'form-control']) }}
+                    </div>
                 </div>
                 <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
                         {{ Form::submit('Pozovi',array('class' => 'btn btn-primary')) }}
                     </div>
                 </div>
-            </fieldset>
-            {{Form::close()}}
-            <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div></div>
-    </div>
+        </div>
+        </fieldset>
+        {{Form::close()}}
+        <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div></div>
+</div>
 </div>
 <script>
+
 getBloodLevelGroups();
 
 setInterval(function() {
@@ -100,7 +98,7 @@ setInterval(function() {
 
 var groupsLoaded = 0;
 
-function getBloodLevelGroups(){
+function getBloodLevelGroups() {
     $.ajax({
         type: "GET",
         url: "api/statistics/institutions/1/bloodlevels",
@@ -178,165 +176,8 @@ $('#btnOrder').click(function() {
     $('#form').toggle('slow');
     $("html, body").animate({scrollTop: 250}, "slow");
 });
-
-var dataTopGroup = {
-    labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
-    datasets: [
-        {
-            label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 90, 81, 56, 55, 40]
-        },
-        {
-            label: "My Second dataset",
-            fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [28, 48, 40, 19, 96, 27, 100]
-        }
-    ]
-};
-
-var dataMonth = [
-{
-        value: 300,
-        color:"#F7464A",
-        highlight: "#FF5A5E",
-        label: "Red"
-    },
-    {
-        value: 50,
-        color: "#46BFBD",
-        highlight: "#5AD3D1",
-        label: "Green"
-    },
-    {
-        value: 100,
-        color: "#FDB45C",
-        highlight: "#FFC870",
-        label: "Yellow"
-    },
-    {
-        value: 40,
-        color: "#949FB1",
-        highlight: "#A8B3C5",
-        label: "Grey"
-    },
-    {
-        value: 120,
-        color: "#4D5360",
-        highlight: "#616774",
-        label: "Dark Grey"
-    }
-];
-
-
-
-
-var dataYear = [
-    {
-        value: 300,
-        color:"#F7464A",
-        highlight: "#FF5A5E",
-        label: "Red"
-    },
-    {
-        value: 50,
-        color: "#46BFBD",
-        highlight: "#5AD3D1",
-        label: "Green"
-    },
-    {
-        value: 100,
-        color: "#FDB45C",
-        highlight: "#FFC870",
-        label: "Yellow"
-    }
-];
-
-var dataTopDonors =[
-    {
-        value: 300,
-        color:"#F7464A",
-        highlight: "#FF5A5E",
-        label: "Red"
-    },
-    {
-        value: 50,
-        color: "#46BFBD",
-        highlight: "#5AD3D1",
-        label: "Green"
-    },
-    {
-        value: 100,
-        color: "#FDB45C",
-        highlight: "#FFC870",
-        label: "Yellow"
-    }
-];
-
 </script>
 
-
-<div class="row">
-    <div class="col-lg-1">
-    </div>
-    <div class="col-lg-5">
-        <h1 class="centeredText">Najviše donirano po grupi</h1>
-        <canvas id="topGroup">
-        </canvas>
-    </div>
-    <div class="col-lg-5">
-        <h1 class="centeredText">Top 10 donatora</h1>
-        <canvas id="topDonors">
-        </canvas>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-1">
-    </div>
-    <div class="col-lg-5">
-        <h1 class="centeredText">Donacije kroz mjesec u godini</h1>
-        <canvas id="monthStatistic">
-        </canvas>
-    </div>
-    <div class="col-lg-5">
-        <h1 class="centeredText">Donacije kroz godine</h1>
-        <canvas id="yearStatistic">
-        </canvas>
-    </div>
-</div>
-
-<style type="text/css">
-.centeredText{
-    text-align: center;
-}
-</style>
-
-<script>
-
-    var ctx = document.getElementById("topGroup").getContext("2d");
-    var myNewChart = new Chart(ctx).Radar(dataTopGroup, {responsive: true});
-
-    var ctx = document.getElementById("topDonors").getContext("2d");
-    var myNewChart = new Chart(ctx).Pie(dataTopDonors, {responsive: true});
-
-    var ctx = document.getElementById("monthStatistic").getContext("2d");
-    var myNewChart = new Chart(ctx).PolarArea(dataMonth, {responsive: true});
-
-    var ctx = document.getElementById("yearStatistic").getContext("2d");
-    var myNewChart = new Chart(ctx).Doughnut(dataYear, {responsive: true});
-
-</script>
 @stop
 
 
