@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="blodList">
+        <item>M</item>
+        <item>Z</item>
+    </string-array>
+
+    <string-array name="genderList">
+        <item>---NOT SELECTED---</item>
+        <item>0-</item>
+        <item>0+</item>
+        <item>A-</item>
+        <item>A+</item>
+        <item>B-</item>
+        <item>B+</item>
+        <item>AB-</item>
+        <item>AB+</item>
+    </string-array>
+
+    <string-array name="daNeList">
+        <item>Da</item>
+        <item>Ne</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:screenOrientation="portrait">
+
+    <TextView
+        android:id="@+id/tvHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/homeCaption"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="100">
+
+        <Button
+            android:id="@+id/btnHomeViewDonations"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="50"
+            android:text="@string/home1" />
+
+        <Button
+            android:id="@+id/btnHomeViewAchivments"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="50"
+            android:text="@string/home8" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="100">
+
+        <Button
+            android:id="@+id/btnHomeInstitutionList"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="50"
+            android:text="@string/home2" />
+
+        <Button
+            android:id="@+id/btnHomeStatistics"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="50"
+            android:text="@string/home3" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="100">
+        <Button
+            android:id="@+id/btnHomeReminder"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="50"
+            android:text="@string/home4" />
+        <Button
+            android:id="@+id/btnHomeCanIDonate"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="50"
+            android:text="@string/home5" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="100">
+
+        <Button
+            android:id="@+id/btnHomeProfileSettings"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="50"
+            android:text="@string/home6" />
+        <Button
+            android:id="@+id/btnHomeSettings"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="50"
+            android:text="@string/home7" />
+    </LinearLayout>
+
+
+</LinearLayout>
