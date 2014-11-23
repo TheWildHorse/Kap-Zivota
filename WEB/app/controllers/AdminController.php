@@ -74,7 +74,7 @@ class AdminController extends BaseController
         $pb->App($appID, $appSecret);
         $pb->Push();
 
-        return View::make('admin.index');
+        return Redirect::to("admin");
     }
 
 
