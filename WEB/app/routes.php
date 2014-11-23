@@ -30,7 +30,8 @@ Route::group(array('before'=>'auth.admin'),function()
 	Route::post('administrator/sendpush','AdminController@sendPush');
     Route::resource('administrator', 'AdminController');
 	Route::resource('donations', 'DonationsController');
-	Route::get('bloodsupplies', 'BloodSuppliesController@index');
+	Route::get('bloodsupplies', array('as' => 'bloodsupplies.index', 'uses' =>'BloodSuppliesController@index'));
+	Route::get('bloodsupplies/modify/{blood_id}/{increment}', array('as' => 'bloodsupplies.modify', 'uses' =>'BloodSuppliesController@modify_blood_supply'));
 });
 
 Route::group(array('before'=>'auth.superadmin'),function()

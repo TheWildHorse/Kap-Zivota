@@ -12,18 +12,13 @@
 
         </div>
         @foreach ($blood_types as $id => $type)
-            @foreach ($BloodSupplies as $BloodSupply)
-                <div class="col-md-1 well text-center">
-                @if($BloodSupply->blood_id == $id)
-                    <span style="color:#CD3F3F; font-size: 48px;font-weight: bold;">{{{ $type }}}</span>
-                    <br>
-                    <span style="font-size: 18px">Doza: {{{ $BloodSupply->quantity }}}</span>
-                @else
-                    <span style="color:#CD3F3F; font-size: 48px;font-weight: bold;">{{{ $type }}}</span>
-                    <br>
-                    <span style="font-size: 18px">Doza: 0</span>
-                @endif
-                </div>
-            @endforeach
+            <div class="col-md-1 well text-center">
+                <span style="color:#CD3F3F; font-size: 48px;font-weight: bold;">{{{ $type }}}</span>
+                <br>
+                <span style="font-size: 18px">Doza: {{{ $quantities[$id] }}}</span>
+                <br><br>
+                <a href="{{ route("bloodsupplies.modify", array('blood_id' => $id, 'increment' => 1)) }}"><img style="height:30px;width:30px;" src="{{ asset('img/arrow_up.png') }}"/></a>
+                <a href="{{ route("bloodsupplies.modify", array('blood_id' => $id, 'increment' => 0)) }}"><img style="height:30px;width:30px;" src="{{ asset('img/arrow_down.png') }}"/></a>
+            </div>
         @endforeach
     </div>

@@ -21,10 +21,28 @@ class BloodSuppliesController extends BaseController {
 	 */
 	public function index()
 	{
-		$BloodSupplies = $this->BloodSupply->all();
+		$BloodSupplies = BloodSupply::where('institution_id', "=", Auth::user()->institution_id)->get();
+		$quantities = array(1=>0, 2=>0, 3=>0, 4=>0, 5=>0, 6=>0, 7=>0, 8=>0);
+		foreach($BloodSupplies as $supply) {
+			$quantities[$supply->blood_id] = $supply->quantity;
+		}
 		$blood_types = Blood::lists("type", "id");
 
-		return View::make('BloodSupplies.index', compact('BloodSupplies', 'blood_types'));
+		return View::make('BloodSupplies.index', compact('quantities', 'blood_types'));
+	}
+
+	public function modify_blood_supply($blood_id, $increment = false) {
+		$current = BloodSupply::where('institution_id', "=", Auth::user()->institution_id)->where('blood_id', "=", $blood_id)->first();
+		if(count($current) > 0) {
+			if($increment) $current->quantity = $current->quantity+1;
+			else $current->quantity = $current->quantity-1;
+			$current->save();
+		}
+		else {
+			if($increment) BloodSupply::create(array('institution_id' => Auth::user()->institution_id, 'blood_id' => $blood_id, 'quantity' => 1));
+			else BloodSupply::create(array('institution_id' => Auth::user()->institution_id, 'blood_id' => $blood_id, 'quantity' => 0));
+		}
+		return Redirect::to("/bloodsupplies");
 	}
 
 	/**
