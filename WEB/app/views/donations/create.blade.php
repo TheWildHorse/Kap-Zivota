@@ -3,8 +3,8 @@
 @section('main')
 
 <div class="row">
-    <div class="col-md-10 col-md-offset-2">
-        <h1>Create Donation</h1>
+    <div class="col-md-12">
+        <h1 class="text-center">Evidentiraj Donaciju</h1>
 
         @if ($errors->any())
         	<div class="alert alert-danger">
@@ -19,38 +19,16 @@
 {{ Form::open(array('route' => 'donations.store', 'class' => 'form-horizontal')) }}
 
         <div class="form-group">
-            {{ Form::label('user_id', 'User_id:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('user_id', Input::old('user_id'), array('class'=>'form-control', 'placeholder'=>'User_id')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('institution_id', 'Institution_id:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('institution_id', Input::old('institution_id'), array('class'=>'form-control', 'placeholder'=>'Institution_id')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('time', 'Time:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('time', Input::old('time'), array('class'=>'form-control', 'placeholder'=>'Time')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('measure', 'Measure:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('measure', Input::old('measure'), array('class'=>'form-control', 'placeholder'=>'Measure')) }}
+            {{ Form::label('user_id', 'Korisničko ime:', array('class'=>'col-md-4 control-label')) }}
+            <div class="col-sm-6">
+              {{ Form::select('user_id', $usernames, Input::old('user_id'), array('class'=>'form-control', 'placeholder'=>'User_id')) }}
             </div>
         </div>
 
 
-<div class="form-group">
-    <label class="col-sm-2 control-label">&nbsp;</label>
-    <div class="col-sm-10">
-      {{ Form::submit('Create', array('class' => 'btn btn-lg btn-primary')) }}
+<div class="form-group text-center">
+    <div class="col-sm-12">
+      {{ Form::submit('Evidentiraj', array('class' => 'btn btn-lg btn-primary')) }}
     </div>
 </div>
 
