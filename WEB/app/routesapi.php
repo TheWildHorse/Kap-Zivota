@@ -125,7 +125,14 @@ Route::api(['version' => 'v1', 'prefix' => 'api'], function () {
     Route::get('statistics/user/{id}/lastdonated',function($id)
     {
         $allUserDonations =  Donation::where('user_id','=',$id)->orderBy('time','DESC')->first();
-        return $allUserDonations->time;
+        if(is_object($allUserDonations))
+        {
+            return $allUserDonations->time;
+        }
+        else
+        {
+            return 0;
+        }
     });
 
     Route::get('statistics/user/{id}/lastfive',function($id)
@@ -137,6 +144,11 @@ Route::api(['version' => 'v1', 'prefix' => 'api'], function () {
     {
 
         return Donation::orderBy('time','DESC')->take(5)->get();
+    });
+
+    Route::get('statistics/supplies/topfive',function()
+    {
+
     });
 
     
