@@ -30,7 +30,7 @@
 
 </div>-->
 
-<div style="padding:100px 0px 15px 0px;text-align:center;background-color: #EB4444; color: #FFF; font-size: 100px; height: 550px; width:100%">
+<div style="padding:100px 0px 15px 0px;text-align:center;background-color: #EB4444; color: #FFF; font-size: 100px; width:100%">
     Ovaj mjesec je donirano <strong>{{$liters_donated}} litara</strong> krvi.
     <br>
     <a href="#"><img src="{{asset("img/android.png")}}"/></a>
@@ -40,13 +40,18 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-8 col-lg-offset-2">
-        <h3>Lorem ipsum dolor sit amet, vis numquam tincidunt ea, ludus splendide mel ei. Ut sed doming rationibus. Quot illum duo ne, ne velit oblique detraxit ius. Homero essent ceteros cu sit, ad melius propriae accommodare eos. No accumsan tincidunt mei, nonumes incorrupte dissentias per at.
-
-            Eu duis sanctus oporteat pri, quo porro exerci reprehendunt ex. No alii vidit disputando vim, prima mentitum philosophia ei ius. Quo suscipit praesent elaboraret in. Id ullum minimum appetere pro, vel veri lorem ex.
-
-            Quo mediocrem reprimique et, posse probatus maluisset te has. Movet regione pri ne, euismod iracundia gloriatur te vis. In veri nobis est. Ei idque altera philosophia sed. Cu has eligendi oporteat cotidieque, habeo possim molestie eum ex. Ei mundi euismod propriae nec, magna eruditi te eam, nam putent dolorum urbanitas ut.
-        </h3></div>
+    <div class="col-lg-4 col-md-offset-1">
+        <h1>Tko može donirati krv?</h1>
+        <p>
+            Krv mogu donirati sve osobe 18-65 koje imaju više od 55 kilograma te ne boluju od kroničnih ili zaraznih bolesti. Žene mogu donirati krv jednom u 4 mjeseci, a muškarci jednom u 3 mjeseca. Ukoliko neznate svoju krvnu grupu, ne brinite, možete je saznati na licu mjesta.
+        </p>
+    </div>
+    <div class="col-lg-4 col-md-offset-2">
+        <h1>Kako se daruje krv?</h1>
+        <p>
+            Nakon kratkog razgovora s liječnikom te par jednostavnih testova vašeg zdravlja započinje proces darivanja krvi. Nakon što vam tehničar uvede iglu u venu, na vama je samo da mirno ležite 8-12 minuta. Cijeli proces traje svega 30ak minuta a može nekome spasiti život.
+        </p>
+    </div>
 </div>
 <hr style="border-top:1px solid #E8776B"/>
 
@@ -69,7 +74,8 @@
         </canvas>
         <div class="row">
             <div class="col-lg-7 col-lg-offset-3">
-                Quo mediocrem reprimique et, posse probatus maluisset te has. Movet regione pri ne, euismod iracundia gloriatur te vis. In veri nobis est. Ei idque altera philosophia sed. Cu has eligendi oporteat cotidieque, habeo possim molestie eum ex. Ei mundi euismod propriae nec, magna eruditi te eam, nam putent dolorum urbanitas ut.
+            Jednostavno praćenje i dokumentiranje krvnih donacija korisnika,
+            kako bi se pravovremeno i jednostavno mogle kontrolirati zalihe krvi i dodijeliti ih najpotrebnijima.
             </div>
         </div>
     </div>
@@ -79,7 +85,7 @@
         </canvas>
         <div class="row">
             <div class="col-lg-7 col-lg-offset-3">
-                Quo mediocrem reprimique et, posse probatus maluisset te has. Movet regione pri ne, euismod iracundia gloriatur te vis. In veri nobis est. Ei idque altera philosophia sed. Cu has eligendi oporteat cotidieque, habeo possim molestie eum ex. Ei mundi euismod propriae nec, magna eruditi te eam, nam putent dolorum urbanitas ut.
+            Donatori mogu na jednostavan način saznati kada je institucijama za darivanje krvi najpotrebnija krv tako da im se pošalje obavijest na mobitel.
             </div>
         </div>
     </div>
@@ -95,7 +101,7 @@
         </canvas>
         <div class="row">
             <div class="col-lg-7 col-lg-offset-3">
-                Quo mediocrem reprimique et, posse probatus maluisset te has. Movet regione pri ne, euismod iracundia gloriatur te vis. In veri nobis est. Ei idque altera philosophia sed. Cu has eligendi oporteat cotidieque, habeo possim molestie eum ex. Ei mundi euismod propriae nec, magna eruditi te eam, nam putent dolorum urbanitas ut.
+            Pomozite onima kojima je potrebna pomoć i skinite aplikaciju za mobitel te skupljajte i zabilježite postignuća vaših dobrih djela.
             </div>
         </div>
     </div>
