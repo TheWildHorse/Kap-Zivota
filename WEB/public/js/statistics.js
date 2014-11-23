@@ -1,4 +1,8 @@
 
+var chartSteps=100;
+if(navigator.userAgent.match(/Android/i)){
+    chartSteps=40;
+}
 function fillTopDonors(donorInfo, numDonations) {
     var dataTopDonors = [
         {
@@ -33,7 +37,7 @@ function fillTopDonors(donorInfo, numDonations) {
         }
     ];
     var ctx = document.getElementById("topDonors").getContext("2d");
-    var myNewChart = new Chart(ctx).Pie(dataTopDonors, {responsive: true});
+    var myNewChart = new Chart(ctx).Pie(dataTopDonors, {responsive: true,animationSteps : chartSteps});
 }
 
 function getTopDonors() {
@@ -88,7 +92,7 @@ function fillTopGroups(bloodGroupsQuantity) {
     };
 
     var ctx = document.getElementById("topGroup").getContext("2d");
-    var myNewChart = new Chart(ctx).Radar(dataTopGroup, {responsive: true});
+    var myNewChart = new Chart(ctx).Radar(dataTopGroup, {responsive: true,animationSteps : chartSteps});
 }
 
 function getTopGroups() {
@@ -153,7 +157,7 @@ function fillTopInstitutions(institutionNames, bloodGroupsQuantity) {
     ];
 
     var ctx = document.getElementById("institutionStatistic").getContext("2d");
-    var myNewChart = new Chart(ctx).PolarArea(dataTopInstitutions, {responsive: true});
+    var myNewChart = new Chart(ctx).PolarArea(dataTopInstitutions, {responsive: true,animationSteps : chartSteps});
 }
 
 function getTopInstitutions() {
