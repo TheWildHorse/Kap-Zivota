@@ -23,7 +23,9 @@ Route::get('/login', 'UsersController@login');
 Route::post('/login', 'UsersController@web_Auth');
 Route::get('/logout', array('as' => 'logout', 'uses' =>'UsersController@web_Logout'));
 
-
+Route::get('/charts', function(){
+	return View::make('users.mobileCharts');
+});
 Route::group(array('before'=>'auth.admin'),function()
 {
 	Route::get('admin', array('as' => 'admin', 'to' => function(){
