@@ -17,6 +17,9 @@
                 background-color: #FFF;
                 border: 0px solid;
             }
+            .btn-login:hover {
+                color: #000;
+            }
         </style>
     </head>
 
@@ -39,7 +42,7 @@
 
                     <div class="form-group">
                         <div class="col-lg-12">
-                            {{ Form::text('password', Input::old('password'), array('class'=>'form-control', 'placeholder'=>'Password')) }}
+                            {{ Form::password('password', array('class'=>'form-control', 'placeholder'=>'Password')) }}
                         </div>
                     </div>
                 <br/>

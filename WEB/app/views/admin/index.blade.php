@@ -79,7 +79,6 @@
 </div>
 </div>
 <script>
-
 getBloodLevelGroups();
 
 setInterval(function() {
@@ -155,6 +154,9 @@ $('#btnOrder').click(function() {
     $('#form').toggle('slow');
     $("html, body").animate({scrollTop: 250}, "slow");
 });
+
+
+
 </script>
 
 @stop
