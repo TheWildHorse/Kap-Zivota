@@ -122,6 +122,26 @@ Route::api(['version' => 'v1', 'prefix' => 'api'], function () {
     });
 
 
+    Route::get('statistics/user/{id}/lastdonated',function($id)
+    {
+        $allUserDonations =  Donation::where('user_id','=',$id)->orderBy('time','DESC')->first();
+        return $allUserDonations->time;
+    });
+
+    Route::get('statistics/user/{id}/lastfive',function($id)
+    {
+       return   Donation::where('user_id','=',$id)->orderBy('time')->take(5)->get();
+    });
+
+    Route::get('statistics/donations/lastfive',function()
+    {
+
+        return Donation::orderBy('time','DESC')->take(5)->get();
+    });
+
+    
+  
+
 });
 
 ?>

@@ -22,7 +22,7 @@ Route::post('/login', 'UsersController@web_Auth');
 
 Route::group(array('before'=>'auth.admin'),function()
 {
-	Route::get('/logout', 'UsersController@web_Logout');
+	Route::get('/logout', array('as' => 'logout', 'to' =>'UsersController@web_Logout'));
 
 	Route::get('admin', function(){
 		return View::make("admin.index");
@@ -30,12 +30,12 @@ Route::group(array('before'=>'auth.admin'),function()
 	Route::post('administrator/sendpush','AdminController@sendPush');
     Route::resource('administrator', 'AdminController');
 	Route::resource('donations', 'DonationsController');
-	Route::resource('bloodsupplies', 'BloodSuppliesController');
+	Route::get('bloodsupplies', 'BloodSuppliesController@index');
 });
 
 Route::group(array('before'=>'auth.superadmin'),function()
 {
-	Route::get('/logout', 'UsersController@web_Logout');
+	Route::get('/logout', array('as' => 'logout', 'to' =>'UsersController@web_Logout'));
 
 	Route::get('superAdmin', array('as' => 'superAdmin', 'to' => function(){
 		return View::make("superAdmin.index");

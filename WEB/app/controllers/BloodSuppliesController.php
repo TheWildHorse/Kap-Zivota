@@ -22,8 +22,9 @@ class BloodSuppliesController extends BaseController {
 	public function index()
 	{
 		$BloodSupplies = $this->BloodSupply->all();
+		$blood_types = Blood::lists("type", "id");
 
-		return View::make('BloodSupplies.index', compact('BloodSupplies'));
+		return View::make('BloodSupplies.index', compact('BloodSupplies', 'blood_types'));
 	}
 
 	/**
