@@ -13,7 +13,10 @@
 include_once('routesapi.php');
 
 Route::get('/', function(){
-	return View::make("index");
+	$donations = Donation::where( DB::raw('MONTH(created_at)'), '=', date('n') )->get();
+	$liters_donated = count($donations)*0.450;
+	round($liters_donated,1);
+	return View::make("index", compact('liters_donated'));
 });
 
 Route::get('/login', 'UsersController@login');

@@ -8,7 +8,7 @@
 {{ HTML::style('css/owl.transitions.css'); }}
 <script src="js/Chart.js"></script>
 
-<div class="content">
+<!--<div class="content">
 	<div class="row">
 
 		<div class="col-lg-8 col-lg-offset-2">
@@ -28,6 +28,13 @@
 	        </div>
 	</div>
 
+</div>-->
+
+<div style="padding:100px 0px 15px 0px;text-align:center;background-color: #EB4444; color: #FFF; font-size: 100px; height: 550px; width:100%">
+    Ovaj mjesec je donirano <strong>{{$liters_donated}} litara</strong> krvi.
+    <br>
+    <a href="#"><img src="{{asset("img/android.png")}}"/></a>
+    <a href="#" class="btn btn-lg btn-info">Saznaj kako i ti možeš donirati</a>
 </div>
 
 </div>
