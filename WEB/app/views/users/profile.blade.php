@@ -23,56 +23,88 @@
             <div class="col-md-6">
                 <div class="form-group">
                     {{ Form::label('username', 'Korisničko ime:', array('class'=>'col-md-4 control-label')) }}
-                    <div class="col-sm-8">
-                      {{ Form::text('username', Input::old('username'), array('class'=>'form-control', 'placeholder'=>'Username')) }}
-                    </div>
+                      <div class="col-sm-8">
+
+                                     <text class="form-control">
+                                          <?php echo $user->username; ?>
+                                    </text>
+                                    </div>
                 </div>
                 <div class="form-group">
                      {{ Form::label('gender', 'Spol:', array('class'=>'col-md-4 control-label')) }}
-                     <div class="col-sm-8">
-                       {{ Form::text('gender', Input::old('gender'), array('class'=>'form-control', 'placeholder'=>'')) }}
-                     </div>
+                       <div class="col-sm-8">
+
+                                      <text class="form-control">
+                                           <?php echo $user->gender; ?>
+                                     </text>
+                                     </div>
                 </div>
                 <div class="form-group">
                      {{ Form::label('email', 'Email:', array('class'=>'col-md-4 control-label')) }}
-                     <div class="col-sm-8">
-                       {{ Form::text('email', Input::old('email'), array('class'=>'form-control', 'placeholder'=>'Email')) }}
-                     </div>
+                      <div class="col-sm-8">
+
+                                     <text class="form-control">
+                                          <?php echo $user->email; ?>
+                                    </text>
+                                    </div>
                 </div>
             <div class="col-md-6">
                 <div class="form-group">
                     {{ Form::label('name', 'Ime:', array('class'=>'col-md-4 control-label')) }}
-                    <div class="col-sm-8">
-                      {{ Form::text('name', Input::old('name'), array('class'=>'form-control', 'placeholder'=>'Name')) }}
-                    </div>
+                      <div class="col-sm-8">
+
+                                     <text class="form-control">
+                                          <?php echo $user->name; ?>
+                                    </text>
+                                    </div>
                 </div>
 
                 <div class="form-group">
                     {{ Form::label('surname', 'Prezime:', array('class'=>'col-md-4 control-label')) }}
-                    <div class="col-sm-8">
-                      {{ Form::text('surname', Input::old('surname'), array('class'=>'form-control', 'placeholder'=>'Surname')) }}
-                    </div>
+                      <div class="col-sm-8">
+
+                                     <text class="form-control">
+                                          <?php echo $user->surname; ?>
+                                    </text>
+                                    </div>
                 </div>
                 <div class="form-group">
                     {{ Form::label('birthdate', 'Datum rođenja:', array('class'=>'col-md-4 control-label')) }}
                     <div class="col-sm-8">
-                      {{ Form::text('birthdate', Input::old('birthdate'), array('class'=>'form-control', 'placeholder'=>'Birthdate')) }}
-                    </div>
+
+                 <text class="form-control">
+                      <?php echo $user->birthdate; ?>
+                </text>
+                </div>
                 </div>
             </div>
             <div class="col-md-6">
                             <div class="form-group">
                                <label class="col-md-4 control-label">Broj donacija</label>
-                                <div class="col-sm-8">
-                                  {{ }}
-                                </div>
+                               <div class="col-sm-8">
+                                  <text class="form-control">
+                                  <?php
+                                    $numberOfDonations = Donation::where('user_id','=',$user->id)->get()->count();
+                                    $results = DB::select( DB::raw("SELECT name FROM achivements WHERE number < :somevariable"), array(
+                                                'somevariable' => $numberOfDonations,
+                                            ));
+                                    echo $numberOfDonations;
+                                    ?>
+                                    </text>
+                                    </div>
                             </div>
 
                             <div class="form-group">
-                                {{ Form::label('surname', 'Prezime:', array('class'=>'col-md-4 control-label')) }}
-                                <div class="col-sm-8">
-                                  {{ Form::text('surname', Input::old('surname'), array('class'=>'form-control', 'placeholder'=>'Surname')) }}
-                                </div>
+                                <label class="col-md-4 control-label">Korisnikova postignuća</label>
+                                <div class="col-sm-12">
+                                 <text class="form-control"><?php foreach( json_decode( json_encode($results),true) as $i)
+
+                                  {
+                                  echo $i["name"].", ";
+                                  }
+
+                                  ?></text>
+                                 </div>
                             </div>
                   </div>
         </div>

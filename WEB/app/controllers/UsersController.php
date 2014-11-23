@@ -51,6 +51,17 @@ class UsersController extends BaseController {
 		return 0; // Vraća 0 ako podatci nisu ispravni
 	}
 
+    public static  function core_login($email,$password) {
+
+
+
+           $user =  User::where('email','=',$email)->first();
+            if(Hash::check($password,$user->password))
+                return array("api"=>$user->api_key,"id"=>$user->id);
+            else
+                return 0;
+
+    }
 	// -------------------- API ----------------------
 
 	// -------------------- Web ----------------------
