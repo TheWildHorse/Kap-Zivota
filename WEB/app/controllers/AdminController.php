@@ -29,7 +29,7 @@ class AdminController extends BaseController
         $bloodtype= Input::get('bloodgroup');
         $bgr=Blood::find($bloodtype)->type;
         $dodatnaObavijest = Input::get('Dodajteobavijesti');
-        $usersThatCamSend=User::where('udid','<>','')->get();
+        $usersThatCamSend=User::where('udid','<>','')->where('blood_id','=',$bloodtype)->get();
 
         foreach($usersThatCamSend  as $user)
         {
@@ -40,7 +40,7 @@ class AdminController extends BaseController
                 $latestDate = Donation::where('user_id','=',$user->id)->orderBy('time')->first();
                 $date = $latestDate->time;
                 $dateDifference =$this->dateDiff( date("Y-m-d h:i:sa"),$date);
-                ;
+
             }
             else
             {
