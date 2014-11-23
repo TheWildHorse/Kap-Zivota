@@ -262,6 +262,26 @@ var dataYear = [
     }
 ];
 
+var dataTopDonors =[
+    {
+        value: 300,
+        color:"#F7464A",
+        highlight: "#FF5A5E",
+        label: "Red"
+    },
+    {
+        value: 50,
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: "Green"
+    },
+    {
+        value: 100,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "Yellow"
+    }
+];
 
 </script>
 
@@ -306,12 +326,15 @@ var dataYear = [
 
     var ctx = document.getElementById("topGroup").getContext("2d");
     var myNewChart = new Chart(ctx).Radar(dataTopGroup, {responsive: true});
-    /*var ctx = document.getElementById("topDonors").getContext("2d");
-    var myNewChart = new Chart(ctx[0]).Pie(dataTopDonors, {responsive: true});*/
+
+    var ctx = document.getElementById("topDonors").getContext("2d");
+    var myNewChart = new Chart(ctx).Pie(dataTopDonors, {responsive: true});
+
     var ctx = document.getElementById("monthStatistic").getContext("2d");
     var myNewChart = new Chart(ctx).PolarArea(dataMonth, {responsive: true});
+
     var ctx = document.getElementById("yearStatistic").getContext("2d");
-    var myNewChart = new Chart(ctx[1]).Doughnut(dataYear, {responsive: true});
+    var myNewChart = new Chart(ctx).Doughnut(dataYear, {responsive: true});
 
 </script>
 @stop
