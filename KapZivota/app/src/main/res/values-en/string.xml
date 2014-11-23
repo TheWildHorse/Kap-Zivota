@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?> <!-- CanIDonate.this.getResources().getString(R.string.cidWrongData) -->
+<resources>
+
+    <string name="homeCaption">HOME PAGE</string>
+    <string name="home1">Donation overview</string>
+    <string name="home2">Institution list</string>
+    <string name="home3">Statistics</string>
+    <string name="home4">Reminder</string>
+    <string name="home5">Can I donate?</string>
+    <string name="home6">Edit profile</string>
+    <string name="home7">Settings</string>
+    <string name="home8">Achievements</string>
+
+    <string name="preLog1">LOGIN</string>
+    <string name="preLog2">LOG IN</string>
+    <string name="preLog3">REGISTER</string>
+    <string name="preLog4">or</string>
+    <string name="preLog5">FACEBOOK LOGIN</string>
+
+    <string name="login1">Email</string>
+    <string name="login2">Password</string>
+    <string name="login3">Log in</string>
+    <string name="login4">Request new password</string>
+
+    <string name="reg1">Email</string>
+    <string name="reg2">Password</string>
+    <string name="reg3">Password repeat</string>
+    <string name="reg4">Register</string>
+
+    <string name="regPassError1">Check password</string>
+    <string name="regPassError2">Email is invalid</string>
+    <string name="regPassError3">REGISTRATION UNSUCCESSFUL</string>
+
+    <string name="userProfileBtn">SAVE</string>
+
+    <string name="cidCaptio">CAN I DONATE BLOOD?</string>
+    <string name="cidSex">What is your gender?</string>
+    <string name="cidAge">How old are you?</string>
+    <string name="cidTime">Remaining time to next donation</string>
+    <string name="cidWeight">How much do you weigh?</string>
+    <string name="cidChronic">Do you suffer from chronic illnesses?</string>
+    <string name="cidInfection">Do you suffer from a contagious diesease?</string>
+    <string name="cidBtn">CHECK</string>
+    <string name="cidWrongData">You didn’t enter you weight</string>
+    <string name="cidMess1">You are ready to donate, find the closest location to donate.</string>
+    <string name="cidMess2">Unfortunately, you can’t donate right now.</string>
+    <string name="cidExit">Exit</string>
+    <string name="cidDon">Show me where to donate!</string>
+
+</resources>
+

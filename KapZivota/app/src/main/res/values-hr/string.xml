@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?> <!-- CanIDonate.this.getResources().getString(R.string.cidWrongData) -->
+<resources>
+
+    <string name="homeCaption">Početna</string>
+    <string name="home1">Pregled donacija</string>
+    <string name="home2">Popis institucija</string>
+    <string name="home3">Statistike</string>
+    <string name="home4">Podsjetnik</string>
+    <string name="home5">Mogu li donirati</string>
+    <string name="home6">Uređievanje profila</string>
+    <string name="home7">Postavke</string>
+    <string name="home8">Postignuća</string>
+
+    <string name="preLog1">PRIJAVA</string>
+    <string name="preLog2">PRIJAVI SE</string>
+    <string name="preLog3">Registriraj se</string>
+    <string name="preLog4">ILI</string>
+    <string name="preLog5">FACEBOOK PRIJAVA</string>
+
+    <string name="login1">Email</string>
+    <string name="login2">Lozinka</string>
+    <string name="login3">Prijavi se</string>
+    <string name="login4">Zatraži novu lozinku</string>
+
+    <string name="reg1">Email</string>
+    <string name="reg2">Lozinka</string>
+    <string name="reg3">Ponovi lozinku</string>
+    <string name="reg4">Registriraj se</string>
+
+    <string name="regPassError1">Provjeri password</string>
+    <string name="regPassError2">Email adresa neispravna</string>
+    <string name="regPassError3">REGISTRACIJA NEUSPJELA</string>
+
+    <string name="userProfileBtn">SPREMI</string>
+
+    <string name="cidCaptio">MOGU LI DONIRATI KRV?</string>
+    <string name="cidSex">Kojeg ste spola?</string>
+    <string name="cidAge">Koliko godina imate?</string>
+    <string name="cidTime">Preostalo vremena do sljedeće donacije</string>
+    <string name="cidWeight">Kolika je vaša kilaža?</string>
+    <string name="cidChronic">Bolujete li od kroničnih bolesti?</string>
+    <string name="cidInfection">Bolujete li od neke zarazne bolseti?</string>
+    <string name="cidBtn">PROVJERI</string>
+    <string name="cidWrongData">Niste upisali kilažu</string>
+    <string name="cidMess1">Vi ste spremini za donaciju! Pronađite vama najbližu lokaciju za doniranje</string>
+    <string name="cidMess2">"Nažalost, Vi trenutno ne možete donirati krv"</string>
+    <string name="cidExit">Izlaz</string>
+    <string name="cidDon">"Pokažimi gdje da doniram"</string>
+
+</resources>
+
