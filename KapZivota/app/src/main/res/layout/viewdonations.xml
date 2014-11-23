@@ -12,7 +12,7 @@
         android:text="YOUR DONATIONS:" />
 
     <TextView
-        android:id="@+id/tvProfileoverviewDonationsCounter"
+        android:id="@+id/tvViewdonationsCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -20,7 +20,7 @@
         android:textSize="45sp" />
 
     <ListView
-        android:id="@+id/lvProfileoverviewList"
+        android:id="@+id/lvViewdonationsList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal" />

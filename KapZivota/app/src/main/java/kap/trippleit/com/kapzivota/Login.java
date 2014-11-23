@@ -48,9 +48,6 @@ public class Login extends Activity implements View.OnClickListener {
 
         email.setText("kdomic7@gmail.com");
         pass.setText("1111");
-
-
-
     }
 
     @Override
@@ -61,7 +58,8 @@ public class Login extends Activity implements View.OnClickListener {
                 if(email.length()<2 || pass.length()<2){
                     Toast.makeText(Login.this, "Niese upisali sve potrebne podatke", Toast.LENGTH_LONG).show();
                 } else {
-
+                    Singleton.setUser_id(this,"1");
+                    Singleton.setApi_key(this,"1");
                 }
 
                 Intent i = new Intent("kap.trippleit.com.kapzivota.HOME");

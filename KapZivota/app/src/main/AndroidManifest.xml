@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <permission
         android:name="kap.trippleit.com.kapzivota.permission.C2D_MESSAGE"
@@ -96,8 +97,46 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="kap.trippleit.com.kapzivota.ViewDonations"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="kap.trippleit.com.kapzivota.VIEWDONATIONS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="kap.trippleit.com.kapzivota.CanIDonate"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="kap.trippleit.com.kapzivota.CANIDONATE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="kap.trippleit.com.kapzivota.Reminder"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="kap.trippleit.com.kapzivota.REMINDER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="kap.trippleit.com.kapzivota.Statistics"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="kap.trippleit.com.kapzivota.STATISTICS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity android:name="com.pushbots.push.PBMsg" />
         <activity android:name="com.pushbots.push.PBListener" />
+
+        <receiver android:name="kap.trippleit.com.kapzivota.CustomPushReceiver" />
 
         <receiver
             android:name="com.google.android.gcm.GCMBroadcastReceiver"
