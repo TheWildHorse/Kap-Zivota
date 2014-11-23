@@ -36,6 +36,10 @@ Route::group(array('before'=>'auth.admin'),function()
 	Route::get('bloodsupplies/modify/{blood_id}/{increment}', array('as' => 'bloodsupplies.modify', 'uses' =>'BloodSuppliesController@modify_blood_supply'));
 });
 
+
+Route::get('/users/list','UsersController@showUsers');
+Route::get('users/profile/{id}','UsersController@showProfile');
+
 Route::group(array('before'=>'auth.superadmin'),function()
 {
 	Route::get('superAdmin', array('as' => 'superAdmin', 'to' => function(){

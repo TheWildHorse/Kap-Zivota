@@ -162,10 +162,27 @@ Route::api(['version' => 'v1', 'prefix' => 'api'], function () {
             /*
              * SELECT COUNT(*),u.name FROM institutions i,users u, donations d WHERE u.id =d.user_id AND d.institution_id=i.id GROUP BY user_id ORDER BY COUNT(*) DESC LIMIT 5;
               */
-       return  $results = DB::select( DB::raw("SELECT COUNT(*),u.name FROM institutions i,users u, donations d WHERE u.id =d.user_id AND d.institution_id=i.id GROUP BY user_id ORDER BY COUNT(*) DESC LIMIT 5;"));
+       return  $results = DB::select( DB::raw("SELECT COUNT(*) AS 'broj',u.name,u.surname FROM institutions i,users u, donations d WHERE u.id =d.user_id AND d.institution_id=i.id GROUP BY user_id ORDER BY COUNT(*) DESC LIMIT 5;"));
 
     });
-    
+
+    Route::get('statistics/users/topgroups',function()
+    {
+        /*
+         * SELECT COUNT(*),u.name FROM institutions i,users u, donations d WHERE u.id =d.user_id AND d.institution_id=i.id GROUP BY user_id ORDER BY COUNT(*) DESC LIMIT 5;
+          */
+        return  $results = DB::select( DB::raw("SELECT b.type, COUNT(*) AS 'broj' FROM bloods b, donations d, users u WHERE d.user_id=u.id AND b.id=u.blood_id GROUP BY b.type ORDER BY COUNT(*) DESC"));
+
+    });
+
+    Route::get('statistics/users/topinstitutionsdonations',function()
+    {
+        /*
+         * SELECT COUNT(*),u.name FROM institutions i,users u, donations d WHERE u.id =d.user_id AND d.institution_id=i.id GROUP BY user_id ORDER BY COUNT(*) DESC LIMIT 5;
+          */
+        return  $results = DB::select( DB::raw("SELECT i.name, COUNT(*) AS 'broj' FROM donations d,institutions i WHERE d.institution_id=i.id   GROUP BY i.name ORDER BY COUNT(*) DESC"));
+
+    });
   
 
 });

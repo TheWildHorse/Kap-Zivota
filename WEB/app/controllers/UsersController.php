@@ -93,6 +93,18 @@ class UsersController extends BaseController {
 		return View::make('users.index', compact('users', 'blood_types', 'institutions'));
 	}
 
+    public function showUsers()
+    {
+        $users=$this->user->all();
+        return View::make('users.list',compact('users'));
+    }
+
+
+    public function showProfile($id)
+    {
+        $user =User::find($id);
+        return View::make('users.profile',compact('user'));
+    }
 	/**
 	 * Show the form for creating a new resource.
 	 *
