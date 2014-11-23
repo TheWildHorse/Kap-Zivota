@@ -22,13 +22,9 @@
 				    <td>{{{ $user->username }}}</td>
 	                <td>{{{ $user->name }}}</td>
     				<td>{{{ $user->surname }}}</td>
-    				<td>  {{ link_to_route('users.edit', 'Pregledaj', array($user->id), array('class' => 'btn btn-info')) }}</td>
-                    <td>
-                       <!-- {{ Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'route' => array('users.destroy', $user->id))) }}
-                            {{ Form::submit('Izbriši', array('class' => 'btn btn-danger')) }}
-                        {{ Form::close() }}
-                        {{ link_to_route('users.edit', 'Uredi', array($user->id), array('class' => 'btn btn-info')) }}
-                 !-->   </td>
+    				<td>  {{ link_to_action('UsersController@showProfile', 'Prikaži', array($user->id), array('class' => 'btn btn-info')) }}
+                                       <td>
+                     </td>
 				</tr>
 			@endforeach
 		</tbody>
