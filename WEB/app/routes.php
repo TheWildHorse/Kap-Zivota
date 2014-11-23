@@ -12,6 +12,10 @@
 */
 include_once('routesapi.php');
 
+Route::get('/', function(){
+	return View::make("index");
+});
+
 Route::get('/login', 'UsersController@login');
 Route::post('/login', 'UsersController@web_Auth');
 
@@ -26,7 +30,7 @@ Route::group(array('before'=>'auth.admin'),function()
 	Route::post('administrator/sendpush','AdminController@sendPush');
     Route::resource('administrator', 'AdminController');
 	Route::resource('donations', 'DonationsController');
-	Route::resource('bloodsupplies', 'BloodsuppliesController');
+	Route::resource('bloodsupplies', 'BloodSuppliesController');
 });
 
 Route::group(array('before'=>'auth.superadmin'),function()
