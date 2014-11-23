@@ -111,14 +111,14 @@ function getBloodLevelGroups() {
                         "AB+": criticalLevel
                     };
                     var bloodGroupsQuantity = {
-                        "0-": 0,
-                        "0+": 0,
-                        "A-": 0,
-                        "A+": 0,
-                        "B-": 0,
-                        "B+": 0,
-                        "AB-": 0,
                         "AB+": 0,
+                        "AB-": 0,
+                        "A+": 0,
+                        "A-": 0,
+                        "B+": 0,
+                        "B-": 0,
+                        "0+": 0,
+                        "0-": 0,
                         "Critical level":criticalLevel
                     };
                     for (var i in dataArray) {
