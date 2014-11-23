@@ -21,6 +21,8 @@
     <string name="login2">Password</string>
     <string name="login3">Log in</string>
     <string name="login4">Request new password</string>
+    <string name="loginError">LOGIN UNSUCCESSFUL</string>
+
 
     <string name="reg1">Email</string>
     <string name="reg2">Password</string>

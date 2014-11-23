@@ -1,6 +1,7 @@
 package kap.trippleit.com.kapzivota;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -81,11 +82,26 @@ public class Achivments extends Activity {
 
     class Read extends AsyncTask<String, Integer, String> {
 
+        ProgressDialog dialog;
+
+        protected void onPreExecute() {
+            dialog = new ProgressDialog(Achivments.this);
+            dialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            dialog.setMax(100);
+            dialog.show();
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+            dialog.incrementProgressBy(values[0]);
+        }
+
         @Override
         protected String doInBackground(String... params) {
             publishProgress(10);
             try {
-                HttpGet get = new HttpGet("http://178.62.168.32/api/statistics/donations/2");
+                HttpGet get = new HttpGet("http://178.62.168.32/api/statistics/donations/"+Singleton.getUser_id(Achivments.this));
                 HttpClient client = new DefaultHttpClient();
                 HttpResponse r = client.execute(get);
                 int status = r.getStatusLine().getStatusCode();
@@ -119,7 +135,7 @@ public class Achivments extends Activity {
                 ListView list = (ListView) findViewById(R.id.lvAchivmentLists);
                 list.setAdapter(adapter);
 
-
+                dialog.dismiss();
 
             } catch (JSONException e) {
                 e.printStackTrace();

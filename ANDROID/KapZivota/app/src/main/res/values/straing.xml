@@ -21,6 +21,7 @@
     <string name="login2">Lozinka</string>
     <string name="login3">Prijavi se</string>
     <string name="login4">Zatraži novu lozinku</string>
+    <string name="loginError">PRIJAVA NEUSPJELA</string>
 
     <string name="reg1">Email</string>
     <string name="reg2">Lozinka</string>

@@ -22,4 +22,5 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile files('/home/kdomic/EclipseWorkspace/RSC-noobs-freestyle/KapZivota/libs/Pushbots131beta.jar')
+    compile files('/home/kdomic/EclipseWorkspace/RSC-noobs-freestyle/ANDROID/KapZivota/libs/Pushbots131beta.jar')
 }

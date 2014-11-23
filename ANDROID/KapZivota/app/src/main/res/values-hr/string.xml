@@ -30,6 +30,7 @@
     <string name="regPassError1">Provjeri password</string>
     <string name="regPassError2">Email adresa neispravna</string>
     <string name="regPassError3">REGISTRACIJA NEUSPJELA</string>
+    <string name="loginError">PRIJAVA NEUSPJELA</string>
 
     <string name="userProfileBtn">SPREMI</string>
 

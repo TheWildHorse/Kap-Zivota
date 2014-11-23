@@ -1,6 +1,7 @@
 package kap.trippleit.com.kapzivota;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -56,12 +57,22 @@ public class Reminder extends Activity implements View.OnClickListener {
 
     public class Read extends AsyncTask<String, Integer, String> {
 
+        ProgressDialog dialog;
+
+        protected void onPreExecute() {
+            dialog = new ProgressDialog(Reminder.this);
+            dialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            dialog.setMax(100);
+            dialog.show();
+        }
+
+
         @Override
         protected String doInBackground(String... params) {
             publishProgress(10);
             try {
                 //String url = "http://178.62.168.32/api/statistics/user/" + Singleton.getUser_id(Reminder.this) + "/lastdonated";
-                String url = "http://178.62.168.32/api/statistics/user/1/lastdonated";
+                String url = "http://178.62.168.32/api/statistics/user/"+Singleton.getUser_id(Reminder.this) +"/lastdonated";
                 Log.d("KRUNO", "URL: " + url);
                 HttpGet get = new HttpGet(url);
                 HttpClient client = new DefaultHttpClient();
@@ -82,6 +93,11 @@ public class Reminder extends Activity implements View.OnClickListener {
 
         @Override
         protected void onPostExecute(String s) {
+
+            if(s==null){
+                s = "0";
+            }
+
             boolean ok = true;
             String date = "NIKAD";
             int timeInDays = 0;
@@ -121,12 +137,13 @@ public class Reminder extends Activity implements View.OnClickListener {
             tvReminderDays.setText("" + timeInDays+" dana");
             tvReminderLastDonation.setText("Zadnja donacija: " + date);
             if (ok && timeInDays <= 0) {
-                Toast.makeText(Reminder.this, "MOŽE", Toast.LENGTH_LONG).show();
+                Toast.makeText(Reminder.this, "Donacija moguća", Toast.LENGTH_LONG).show();
                 btnRemindersRedirect.setVisibility(View.VISIBLE);
             } else {
-                Toast.makeText(Reminder.this, "NEMOŽE", Toast.LENGTH_LONG).show();
+                Toast.makeText(Reminder.this, "Donacija nije moguća", Toast.LENGTH_LONG).show();
             }
 
+            dialog.dismiss();
         }
     }
 }

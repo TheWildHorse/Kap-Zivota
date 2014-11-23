@@ -1,6 +1,7 @@
 package kap.trippleit.com.kapzivota;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -48,6 +49,22 @@ public class ViewDonations extends Activity {
 
     public class Read extends AsyncTask<String, Integer, String> {
 
+        ProgressDialog dialog;
+
+        protected void onPreExecute() {
+            dialog = new ProgressDialog(ViewDonations.this);
+            dialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            dialog.setMax(100);
+            dialog.show();
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+            dialog.incrementProgressBy(values[0]);
+        }
+
+
         @Override
         protected String doInBackground(String... params) {
             try {
@@ -62,6 +79,7 @@ public class ViewDonations extends Activity {
                 } else {
                     Toast.makeText(ViewDonations.this, "ERROR", Toast.LENGTH_LONG);
                 }
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -71,6 +89,7 @@ public class ViewDonations extends Activity {
         @Override
         protected void onPostExecute(String s) {
             tvViewdonationsCount.setText(s);
+            dialog.dismiss();
         }
     }
 

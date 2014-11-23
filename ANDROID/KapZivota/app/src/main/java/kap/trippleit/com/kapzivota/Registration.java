@@ -129,7 +129,7 @@ public class Registration extends Activity implements View.OnClickListener {
             }
             if (ok) {
                 Toast.makeText(Registration.this, "OK", Toast.LENGTH_LONG).show();
-                Intent i = new Intent("kap.trippleit.com.kapzivota.HOME");
+                Intent i = new Intent("kap.trippleit.com.kapzivota.REGISTRATIONUSERDATA");
                 startActivity(i);
             } else {
                 Toast.makeText(Registration.this, Registration.this.getResources().getString(R.string.regPassError3), Toast.LENGTH_LONG).show();

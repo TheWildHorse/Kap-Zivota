@@ -125,10 +125,10 @@ public class Login extends Activity implements View.OnClickListener {
             }
             if (ok) {
                 Toast.makeText(Login.this, "OK", Toast.LENGTH_LONG).show();
-                Intent i = new Intent("kap.trippleit.com.kapzivota.REGISTRATIONUSERDATA");
+                Intent i = new Intent("kap.trippleit.com.kapzivota.HOME");
                 startActivity(i);
             } else {
-                Toast.makeText(Login.this, Login.this.getResources().getString(R.string.regPassError3), Toast.LENGTH_LONG).show();
+                Toast.makeText(Login.this, Login.this.getResources().getString(R.string.loginError), Toast.LENGTH_LONG).show();
             }
         }
     }
