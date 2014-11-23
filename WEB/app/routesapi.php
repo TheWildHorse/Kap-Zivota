@@ -146,11 +146,25 @@ Route::api(['version' => 'v1', 'prefix' => 'api'], function () {
         return Donation::orderBy('time','DESC')->take(5)->get();
     });
 
-    Route::get('statistics/supplies/topfive',function()
+    Route::get('statistics/donations/{id}',function($id)
     {
+      $numberOfDonations = Donation::where('user_id','=',$id)->get()->count();
+        $results = DB::select( DB::raw("SELECT name FROM achivements WHERE number < :somevariable"), array(
+            'somevariable' => $numberOfDonations,
+        ));
+
+        return array('number of donations'=>$numberOfDonations,'achivement list'=>$results);
 
     });
 
+    Route::get('statistics/users/topten',function()
+    {
+            /*
+             * SELECT COUNT(*),u.name FROM institutions i,users u, donations d WHERE u.id =d.user_id AND d.institution_id=i.id GROUP BY user_id ORDER BY COUNT(*) DESC LIMIT 5;
+              */
+       return  $results = DB::select( DB::raw("SELECT COUNT(*),u.name FROM institutions i,users u, donations d WHERE u.id =d.user_id AND d.institution_id=i.id GROUP BY user_id ORDER BY COUNT(*) DESC LIMIT 5;"));
+
+    });
     
   
 

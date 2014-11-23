@@ -39,6 +39,7 @@ return array(
     'ClassPreloader\\Parser\\DirVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/DirVisitor.php',
     'ClassPreloader\\Parser\\FileVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/FileVisitor.php',
     'ClassPreloader\\Parser\\NodeTraverser' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/NodeTraverser.php',
+    'CreateAchivementsTable' => $baseDir . '/app/database/migrations/2014_11_23_024833_create_achivements_table.php',
     'CreateBloodSuppliesTable' => $baseDir . '/app/database/migrations/2014_11_22_114724_create_bloodsupplies_table.php',
     'CreateBloodsTable' => $baseDir . '/app/database/migrations/2014_11_22_094136_create_bloods_table.php',
     'CreateDonationsTable' => $baseDir . '/app/database/migrations/2014_11_22_094509_create_donations_table.php',

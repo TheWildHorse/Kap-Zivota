@@ -71,6 +71,13 @@ class UsersController extends BaseController {
 		$this->core_logout();
 		return Redirect::to('login');
 	}
+
+
+    public function getAchivements()
+    {
+        $numberOfDonations = Donation::where('user_id','=',Auth::user()->id)->get->count();
+    }
+
 	/**
 	 * Display a listing of the resource.
 	 *
