@@ -27,11 +27,11 @@
 				    <td>{{{ $user->username }}}</td>
 	                <td>{{{ $user->name }}}</td>
     				<td>{{{ $user->surname }}}</td>
-    				<td>{{{ $blood_types[$user->blood_id] }}}</td>
+    				<td>@if($user->blood_id > 0){{{ $blood_types[$user->blood_id] }}}@endif</td>
 					<td>{{{ $user->gender }}}</td>
 					<td>{{{ $user->email }}}</td>
 					<td>{{{ $user->birthdate }}}</td>
-					<td>{{{ $institutions[$user->institution_id] }}}</td>
+					<td>@if($user->institution_id > 0){{{ $institutions[$user->institution_id]  }}}@endif</td>
                     <td>
                         {{ Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'route' => array('users.destroy', $user->id))) }}
                             {{ Form::submit('Izbriši', array('class' => 'btn btn-danger')) }}

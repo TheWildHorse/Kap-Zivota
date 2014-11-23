@@ -46,7 +46,7 @@ Route::filter('auth.superadmin', function()
 			return Redirect::guest('login');
 		}
 	}
-	else if(Auth::user()->premission_id != 2) {
+	else if(Auth::user()->premission_id != 3) {
 		return Response::make('Unauthorized', 401);
 	}
 });
@@ -64,7 +64,7 @@ Route::filter('auth.admin', function()
 			return Redirect::guest('login');
 		}
 	}
-	else if(Auth::user()->premission_id != 1) {
+	else if(Auth::user()->premission_id != 2) {
 		return Response::make('Unauthorized', 401);
 	}
 });

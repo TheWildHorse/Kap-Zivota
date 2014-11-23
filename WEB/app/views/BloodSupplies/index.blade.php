@@ -2,32 +2,28 @@
 
 @section('main')
 
-<h1 class="text-center">Zalihe Krvi</h1>
+    <br>
 
-@if ($BloodSupplies->count())
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>Institution_id</th>
-				<th>Blood_id</th>
-				<th>Quantity</th>
-				<th>&nbsp;</th>
-			</tr>
-		</thead>
+    <h1 class="text-center">Zalihe Krvi</h1>
 
-		<tbody>
-			@foreach ($BloodSupplies as $BloodSupply)
-				<tr>
-					<td>{{{ $BloodSupply->institution_id }}}</td>
-					<td>{{{ $BloodSupply->blood_id }}}</td>
-					<td>{{{ $BloodSupply->quantity }}}</td>
+    <div class="row">
 
-				</tr>
-			@endforeach
-		</tbody>
-	</table>
-@else
-	There are no BloodSupplies
-@endif
+        <div class="col-md-2">
 
-@stop
+        </div>
+        @foreach ($blood_types as $id => $type)
+            @foreach ($BloodSupplies as $BloodSupply)
+                <div class="col-md-1 well text-center">
+                @if($BloodSupply->blood_id == $id)
+                    <span style="color:#CD3F3F; font-size: 48px;font-weight: bold;">{{{ $type }}}</span>
+                    <br>
+                    <span style="font-size: 18px">Doza: {{{ $BloodSupply->quantity }}}</span>
+                @else
+                    <span style="color:#CD3F3F; font-size: 48px;font-weight: bold;">{{{ $type }}}</span>
+                    <br>
+                    <span style="font-size: 18px">Doza: 0</span>
+                @endif
+                </div>
+            @endforeach
+        @endforeach
+    </div>
