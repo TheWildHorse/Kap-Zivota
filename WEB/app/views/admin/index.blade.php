@@ -54,25 +54,30 @@
     <div class="col-lg-3"></div>
     <div class="col-lg-6" id="form" style="display:none">
         <div class="well bs-component">
-            {{Form::open(array('action' => 'AdminController@sendPush'))}}
-            <fieldset>
-                <legend>Pozivanje donatora</legend>
-                <div class="form-group">
-                    <label for="inputNaslov" class="col-lg-2 control-label">Naslov</label>
-                    <div class="col-lg-10">
-                        {{ Form::text('Dodajte obavijesti', null, ['class' => 'form-control']) }}
+
+           	{{Form::open(array('action' => 'AdminController@sendPush'))}}
+                <fieldset>
+
+                    <legend>Pozivanje donatora</legend>
+                    <div class="form-group">
+                        <label for="inputNaslov" class="col-lg-2 control-label">Naslov</label>
+                        <div class="col-lg-10">
+                         {{ Form::text('Naslov', null, ['class' => 'form-control']) }}
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="textArea" class="col-lg-2 control-label">Odaberite krvnu grupu</label>
-                    <div class="col-lg-10">
-                        {{Form::select('bloodgroup',$sveGrupe)}}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="textArea" class="col-lg-2 control-label">Dodatne informacije</label>
-                    <div class="col-lg-10">
-                        {{ Form::textarea('Dodajte obavijesti', null, ['class' => 'form-control']) }}
+                                        <div class="form-group">
+                                            <label for="textArea" class="col-lg-2 control-label">Odaberite krvnu grupu</label>
+                                            <div class="col-lg-10">
+                      {{Form::select('bloodgroup',$sveGrupe)}}
+                      </div>
+                      </div>
+                    <div class="form-group">
+                        <label for="textArea" class="col-lg-2 control-label">Dodatne informacije</label>
+                        <div class="col-lg-10">
+                           {{ Form::textarea('Dodajteobavijesti', null, ['class' => 'form-control']) }}
+                                                </div>
+
+
                     </div>
 
                 </div>
