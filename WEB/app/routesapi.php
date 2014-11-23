@@ -11,6 +11,15 @@ Route::api(['version' => 'v1', 'prefix' => 'api'], function () {
 
     });
 
+    Route::post('users/login',function()
+    {
+
+        $email = Input::get('email');
+        $password =Input::get('password');
+        return UsersController::core_login($email,$password);
+
+    });
+
     Route::post('users/edit',function()
     {
 
@@ -184,6 +193,7 @@ Route::api(['version' => 'v1', 'prefix' => 'api'], function () {
 
     });
   
+
 
 });
 
