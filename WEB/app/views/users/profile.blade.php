@@ -97,13 +97,22 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Korisnikova postignuća</label>
                                 <div class="col-sm-12">
-                                 <text class="form-control"><?php foreach( json_decode( json_encode($results),true) as $i)
+                               <?php foreach( json_decode( json_encode($results),true) as $i)
 
-                                  {
-                                  echo $i["name"].", ";
-                                  }
+{
+echo '
+                                  <div class="row">
+                                    <div class="col-md-4">
+                                        <img class="img-responsive" src="'.asset("img/Trophy.png").'"/>
+                                    </div>
+                                    <div class="col-md-8">
+                                          '.$i["name"].'
+                                    </div>
+                                  </div>
+';
 
-                                  ?></text>
+}
+                                  ?>
                                  </div>
                             </div>
                   </div>
