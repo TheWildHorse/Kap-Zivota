@@ -60,7 +60,10 @@ class UsersController extends BaseController {
 
 	public function web_Auth() {
 		$input = Input::all();
-		if($this->core_authenticate($input['email'], $input['password']))  return Redirect::to('superAdmin');
+		if($this->core_authenticate($input['email'], $input['password'])) {
+			if(Auth::user()->premission_id == 2) return Redirect::to('admin');
+			else if(Auth::user()->premission_id == 3) return Redirect::to('superAdmin');
+		}
 		else return View::make('users.login')->withErrors('Neuspjeli pokušaj logiranja!');
 	}
 

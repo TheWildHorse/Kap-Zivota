@@ -5,17 +5,7 @@
 <?php $sveGrupe = Blood::lists('type', 'id'); ?>
 <script src="js/Chart.js"></script>
 
-<div class="row">
-    <div class="col-lg-3"></div>
-    <div class="col-lg-8">
-        <dl>
-            <dt class="preporucena"></dt>
-            <dd>Preporučena količina</dd>
-            <dt class="trenutna"></dt>
-            <dd>Trenutna količina</dd>
-        </dl>
-    </div>
-</div>
+
 <style>
     dt {
         width: 40px;
@@ -101,12 +91,12 @@ var groupsLoaded = 0;
 function getBloodLevelGroups() {
     $.ajax({
         type: "GET",
-        url: "api/statistics/institutions/1/bloodlevels",
+        url: "api/statistics/institutions/{{ Auth::user()->institution_id }}/bloodlevels",
         dataType: "json",
         success: function(criticalLevel) {
             $.ajax({
                 type: "GET",
-                url: "api/statistics/institutions/1/bloodgrouplevels",
+                url: "api/statistics/institutions/{{ Auth::user()->institution_id }}/bloodgrouplevels",
                 dataType: "json",
                 success: function(dataArray) {
                     criticalLevel = criticalLevel["criticalLevel"];
@@ -128,7 +118,8 @@ function getBloodLevelGroups() {
                         "B-": 0,
                         "B+": 0,
                         "AB-": 0,
-                        "AB+": 0
+                        "AB+": 0,
+                        "Critical level":criticalLevel
                     };
                     for (var i in dataArray) {
                         var bloodGroup = dataArray[i]["blood_id"];
@@ -144,32 +135,20 @@ function getBloodLevelGroups() {
 
 function fillChart(bloodGroupsQuantity, criticalLevel) {
     var data = {
-        labels: ["AB +", "AB -", "A +", "A -", "B +", "B -", "O +", "O -"],
+        labels: ["AB +", "AB -", "A +", "A -", "B +", "B -", "O +", "O -", "Kritična razina"],
         datasets: [
             {
-                label: "My First dataset",
-                fillColor: "rgba(220,220,220,0.5)",
-                strokeColor: "rgba(220,220,220,0.8)",
-                pointColor: "rgba(220,220,220,0.8)",
-                pointStrokeColor: "rgba(220,220,220,0.8)",
-                pointHighlightFill: "rgba(220,220,220,0.75)",
-                pointHighlightStroke: "rgba(220,220,220,1)",
-                data: criticalLevel
-            },
-            {
                 label: "My Second dataset",
-                fillColor: "rgba(151,187,205,0.5)",
-                strokeColor: "rgba(151,187,205,0.8)",
-                pointColor: "rgba(151,187,205,0.8)",
-                pointStrokeColor: "rgba(151,187,205,0.8)",
-                pointHighlightFill: "rgba(151,187,205,0.75)",
-                pointHighlightStroke: "rgba(151,187,205,1)",
+                fillColor: "rgba(215, 44, 44, 0.7)",
+                strokeColor: "rgba(215, 44, 44, 0.8)",
+                highlightFill: "rgba(57, 61, 55, 0.7)",
+                highlightStroke: "rgba(57, 61, 55, 1)",
                 data: bloodGroupsQuantity
             }
         ]
     };
     var ctx = document.getElementById("myChart").getContext("2d");
-    var myNewChart = new Chart(ctx).Line(data, {responsive: true});
+    var myNewChart = new Chart(ctx).Bar(data, {responsive: true});
 }
 
 $('#btnOrder').click(function() {

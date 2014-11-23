@@ -21,7 +21,7 @@
                     <img height="37px" width="45px" src="{{ asset ("img/logo1000_1000.png") }}"/>
                 </div>
                 <div class="navbar-header">
-                    <a href="./" class="navbar-brand" style="color:#E8776B">  Kap života(Admin)</a>
+                    <a href="{{ route("admin") }}" class="navbar-brand" style="color:#E8776B">  Kap života (Admin)</a>
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -30,25 +30,16 @@
                 </div>
                 <div class="navbar-collapse collapse" id="navbar-main">
                     <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Evidencija <span class="caret"></span></a>
-                            <ul class="dropdown-menu" aria-labelledby="themes">
-                                <li><a href="./default/">Ručni unos količine krvi</a></li>
-                                <li class="divider"></li>
-                                <li><a href="./cerulean/">Donacija u tijeku</a></li>
-                            </ul>
+                        <li>
+                            <a href="{{ route("donations.index") }}">Evidencija donacija</a>
                         </li>
                         <li>
-                            <a href="./help/">Statistike</a>
-                        </li>
-                        <li>
-                            <a href="http://news.bootswatch.com">Profili donora</a>
+                            <a href="{{ route("bloodsupplies.index") }}">Zalihe krvi</a>
                         </li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="http://builtwithbootstrap.com/" target="_blank">Moji podaci</a></li>
-                        <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">Odjava</a></li>
+                        <li><a href="{{ route("logout") }}" >Odjava</a></li>
                     </ul>
 
                 </div>

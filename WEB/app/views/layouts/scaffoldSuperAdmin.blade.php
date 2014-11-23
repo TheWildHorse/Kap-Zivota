@@ -21,7 +21,7 @@
                     <img height="37px" width="45px" src="{{ asset ("img/logo1000_1000.png") }}"/>
                 </div>
                 <div class="navbar-header">
-                    <a href="{{ route("superAdmin") }}" class="navbar-brand" style="color:#E8776B">  Kap života(SuperAdmin)</a>
+                    <a href="{{ route("superAdmin") }}" class="navbar-brand" style="color:#E8776B">  Kap života (SuperAdmin)</a>
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
